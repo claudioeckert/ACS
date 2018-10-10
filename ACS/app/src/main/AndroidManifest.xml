@@ -19,6 +19,10 @@
         <activity
             android:name=".CadastrarEditarPessoas"
             android:label="@string/title_activity_cadastrar_editar_pessoas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Telefones"
+            android:label="@string/title_activity_telefones"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

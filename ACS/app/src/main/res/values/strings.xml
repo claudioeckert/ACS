@@ -22,4 +22,5 @@
     <string name="btn_Salvar">Salvar / Alterar</string>
     <string name="btn_Excluir">Excluir</string>
     <string name="btn_NovoRegistro">Adicionar</string>
+    <string name="title_activity_telefones">Telefones</string>
 </resources>
