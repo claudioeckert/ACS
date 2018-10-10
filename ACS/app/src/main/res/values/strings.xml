@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ACS</string>
+    <string name="title_activity_cadastrar_editar_pessoas">Cadastrar Editar Pessoas</string>
+    <string name="lbl_nome">Nome Completo</string>
+    <string name="lbl_endereco">Endereço</string>
+    <string name="lbl_NumeroEndereco">Número</string>
+    <string name="lbl_telefone">Telefone</string>
+    <string name="lbl_CartaoSus">Cartão SUS</string>
+    <string name="lbl_DataNascimento">Dt. Nasc.</string>
+    <string name="rdb_masculino">Masculino</string>
+    <string name="rdb_feminino">Feminino</string>
+    <string name="rdb_outros">Outros</string>
+    <string name="lbl_enfermidades">Condicionalidades</string>
+    <string name="swt_HipertencaoArterial">H. Arterial</string>
+    <string name="sw_tDiabetico">Diabético</string>
+    <string name="swt_Cancer">Câncer</string>
+    <string name="swt_Fumante">Fumante</string>
+    <string name="swt_Domiciliado">Domiciliado</string>
+    <string name="swt_Acamado">Acamado</string>
+    <string name="swt_Deficiente">Deficiente</string>
+    <string name="swt_Gestante">Gestante</string>
+    <string name="btn_Salvar">Salvar / Alterar</string>
+    <string name="btn_Excluir">Excluir</string>
+    <string name="btn_NovoRegistro">Adicionar</string>
+</resources>

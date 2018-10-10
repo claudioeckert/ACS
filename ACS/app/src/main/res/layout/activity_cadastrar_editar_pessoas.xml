@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastrarEditarPessoas">
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/lbl_nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txtNome"
+        app:layout_constraintStart_toStartOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtEndereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_endereco"
+        app:layout_constraintStart_toStartOf="@+id/edtNome"
+        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+
+    <EditText
+        android:id="@+id/edtEndereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/txtNumeroEndereco"
+        app:layout_constraintStart_toStartOf="@+id/txtEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/txtEndereco" />
+
+    <TextView
+        android:id="@+id/txtNumeroEndereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_NumeroEndereco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+
+    <EditText
+        android:id="@+id/edtNumeroEndereco"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumeroEndereco" />
+
+    <TextView
+        android:id="@+id/txtTelefone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_telefone"
+        app:layout_constraintStart_toStartOf="@+id/edtEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/edtEndereco" />
+
+    <EditText
+        android:id="@+id/edtTelefone"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="@+id/txtTelefone1"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefone1" />
+
+    <TextView
+        android:id="@+id/txtCartaoSus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_CartaoSus"
+        app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
+        app:layout_constraintStart_toStartOf="@+id/edtCartaoSus"
+        app:layout_constraintTop_toBottomOf="@+id/edtEndereco" />
+
+    <EditText
+        android:id="@+id/edtCartaoSus"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/txtCartaoSus" />
+
+    <TextView
+        android:id="@+id/txtDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_DataNascimento"
+        app:layout_constraintEnd_toEndOf="@+id/edtDataNscimento"
+        app:layout_constraintStart_toStartOf="@+id/edtDataNscimento"
+        app:layout_constraintTop_toBottomOf="@+id/edtEndereco" />
+
+    <EditText
+        android:id="@+id/edtDataNscimento"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/edtCartaoSus"
+        app:layout_constraintStart_toEndOf="@+id/edtTelefone"
+        app:layout_constraintTop_toBottomOf="@+id/txtDataNascimento" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toTopOf="@+id/edtTelefone"
+        app:layout_constraintTop_toTopOf="@+id/txtTelefone1"
+        tools:layout_editor_absoluteX="93dp" />
+
+    <RadioGroup
+        android:id="@+id/rdgSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
+        app:layout_constraintStart_toStartOf="@+id/edtTelefone"
+        app:layout_constraintTop_toBottomOf="@+id/edtDataNscimento">
+
+        <RadioButton
+            android:id="@+id/rdbMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rdb_masculino" />
+
+        <RadioButton
+            android:id="@+id/rdbFeminino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rdb_feminino" />
+
+        <RadioButton
+            android:id="@+id/rdbOutros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rdb_outros" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/rdgSexo"
+        app:layout_constraintStart_toStartOf="@+id/rdgSexo"
+        app:layout_constraintTop_toBottomOf="@+id/rdgSexo" />
+
+    <Switch
+        android:id="@+id/swtHipertencaoArterial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_HipertencaoArterial"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtDomiciliado"
+        app:layout_constraintTop_toBottomOf="@+id/txtEnfermidades" />
+
+    <Switch
+        android:id="@+id/swtDiabetico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/sw_tDiabetico"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/txtEnfermidades" />
+
+    <Switch
+        android:id="@+id/swtCancer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Cancer"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtAcamado"
+        app:layout_constraintTop_toBottomOf="@+id/swtAcamado" />
+
+    <Switch
+        android:id="@+id/swtFumante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Fumante"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtDomiciliado"
+        app:layout_constraintTop_toBottomOf="@+id/swtDomiciliado" />
+
+    <Switch
+        android:id="@+id/swtDomiciliado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Domiciliado"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/swtHipertencaoArterial" />
+
+    <Switch
+        android:id="@+id/swtAcamado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Acamado"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtDiabetico"
+        app:layout_constraintTop_toBottomOf="@+id/swtDiabetico" />
+
+    <Switch
+        android:id="@+id/swtDeficiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Deficiente"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtFumante"
+        app:layout_constraintTop_toBottomOf="@+id/swtFumante" />
+
+    <Switch
+        android:id="@+id/swtGestante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/swt_Gestante"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/swtCancer"
+        app:layout_constraintTop_toBottomOf="@+id/swtCancer" />
+
+    <TextView
+        android:id="@+id/txtEnfermidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/lbl_enfermidades"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/swtDeficiente" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="40"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_Salvar"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/divider2"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <Button
+        android:id="@+id/btnExcluir"
+        android:layout_width="wrap_content"
+        android:layout_height="40"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_Excluir"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/divider2"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <Button
+        android:id="@+id/btnNovoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="40"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_NovoRegistro"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+</android.support.constraint.ConstraintLayout>
