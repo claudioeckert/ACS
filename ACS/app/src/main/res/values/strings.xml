@@ -19,7 +19,7 @@
     <string name="swt_Acamado">Acamado</string>
     <string name="swt_Deficiente">Deficiente</string>
     <string name="swt_Gestante">Gestante</string>
-    <string name="btn_Salvar">Salvar / Alterar</string>
+    <string name="btn_Salvar">Salvar</string>
     <string name="btn_Excluir">Excluir</string>
     <string name="btn_NovoRegistro">Adicionar</string>
     <string name="title_activity_telefones">Telefones</string>
