@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Geral">
+        <activity android:name=".CadastrarEditarPessoas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastrarEditarPessoas"
-            android:label="@string/title_activity_cadastrar_editar_pessoas"
+            android:name=".Geral"
+            android:label="@string/title_activity_geral"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Telefones"

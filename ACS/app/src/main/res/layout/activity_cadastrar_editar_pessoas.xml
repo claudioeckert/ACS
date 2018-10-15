@@ -136,8 +136,8 @@
         android:layout_height="25dp"
         android:background="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toTopOf="@+id/edtTelefone"
-        app:layout_constraintTop_toTopOf="@+id/txtTelefone1"
-        tools:layout_editor_absoluteX="93dp" />
+        app:layout_constraintEnd_toEndOf="@+id/edtTelefone"
+        app:layout_constraintTop_toTopOf="@+id/txtTelefone1" />
 
     <RadioGroup
         android:id="@+id/rdgSexo"
@@ -277,7 +277,7 @@
         android:id="@+id/divider2"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="@+id/divider"
         app:layout_constraintStart_toStartOf="@+id/divider"
@@ -287,8 +287,7 @@
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/btn_Salvar"
         android:textColor="@android:color/holo_green_light"
         android:textSize="14sp"
@@ -299,8 +298,7 @@
         android:id="@+id/btnExcluir"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/btn_Excluir"
         android:textColor="@android:color/holo_red_light"
         android:textSize="14sp"
@@ -312,7 +310,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/btn_NovoRegistro"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="14sp"
