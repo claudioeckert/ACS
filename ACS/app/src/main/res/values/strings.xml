@@ -27,4 +27,6 @@
     <string name="lbl_Login">Login</string>
     <string name="lbl_Senha">Senha</string>
     <string name="btn_Entrar">Entrar</string>
+    <string name="lbl_Complemento">Complemento</string>
+    <string name="lbl_Bairro">Bairro</string>
 </resources>

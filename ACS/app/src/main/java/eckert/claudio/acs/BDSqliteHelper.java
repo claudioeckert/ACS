@@ -4,20 +4,60 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class BDSqliteHelper extends SQLiteOpenHelper {
+/*public class BDSqliteHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "AcsDB";
+    private static final int VERSAO_BANCO = 1;
+    private static final String NOME_BANCO = "bd_acs";
+
+    //Tabela pessoas
+    private static final String TABELA_PESSOA = "tb_pessoas";
+
+    private static final String C_ID = "id";
+    private static final String C_NOME = "nome";
+    private static final String C_ENDERECO = "endereco";
+    private static final String C_COMPLEMENTO = "complemento";
+    private static final String C_BAIRRO = "bairro";
+    private static final String C_NUMERO = "numero";
+    private static final String C_TELEFONE = "telefone";
+    private static final String C_DATANASCIMENTO = "dataNascimento";
+    private static final String C_CARTAOSUS = "cartaoSus";
+    private static final String C_SEXO = "sexo";
+    private static final String C_HARTERIAL = "hArterial";
+    private static final String C_DIABETICO = "diabetico";
+    private static final String C_DOMICILIADO = "domiciliado";
+    private static final String C_ACAMADO = "acamado";
+    private static final String C_FUMANTE = "fumante";
+    private static final String C_CANCER = "cancer";
+    private static final String C_DEFICIENTE = "deficiente";
+    private static final String C_GESTANTE = "gestante";
 
     public BDSqliteHelper(Context context){
-        super(context,DATABASE_NAME, null, DATABASE_VERSION);
+        super(context,NOME_BANCO, null, VERSAO_BANCO);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE pessoas("+
-                "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "nome TEXT)";//CONTINUAR CRIANDO OS CAMPOS NO BANCO
+        String CREATE_TABLE = "CREATE TABLE " + TABELA_PESSOA + "("
+                + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + C_NOME + " TEXT,"
+                + C_ENDERECO + " TEXT,"
+                + C_COMPLEMENTO + " TEXT"
+                + C_BAIRRO + " TEXT"
+                + C_NUMERO + " INTEGER"
+                + C_TELEFONE + " INTEGER"
+                + C_DATANASCIMENTO + " TEXT"
+                + C_CARTAOSUS + " INTEGER"
+                + C_SEXO + " INTEGER"
+                + C_HARTERIAL + " INTEGER"
+                + C_DIABETICO + " INTEGER"
+                + C_DOMICILIADO + " INTEGER"
+                + C_ACAMADO + " INTEGER"
+                + C_FUMANTE + " INTEGER"
+                + C_CANCER + " INTEGER"
+                + C_DEFICIENTE + " INTEGER"
+                + C_GESTANTE + " INTEGER)";
+
+
         db.execSQL(CREATE_TABLE);
     }
 
@@ -25,4 +65,9 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    //CRUD
+
+
 }
+*/
