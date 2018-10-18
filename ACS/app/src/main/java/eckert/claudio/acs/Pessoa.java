@@ -10,6 +10,7 @@ public class Pessoa {
     int telefone;
     String dataNascimento;
     int cartaoSus;
+    int sexo;
     int hArterial;
     int diabetico;
     int domiciliado;
@@ -18,12 +19,36 @@ public class Pessoa {
     int cancer;
     int deficiente;
     int gestante;
+//-------------------------
 
-    public Pessoa(){
-
+    public Pessoa(int id, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.cartaoSus = cartaoSus;
+        this.sexo = sexo;
+        this.hArterial = hArterial;
+        this.diabetico = diabetico;
+        this.domiciliado = domiciliado;
+        this.acamado = acamado;
+        this.fumante = fumante;
+        this.cancer = cancer;
+        this.deficiente = deficiente;
+        this.gestante = gestante;
     }
+
+
+//-------------------------
+   // public Pessoa(String claudio_eckert, String general_câmara, int i, String fundos, String odila, String s, String s1, String s2, String s3, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8){
+
+   // }
     //Update
-    public Pessoa(int _id, String _nome, String _endereco, int _numero, String _complemento, String _bairro, int _telefone, String _dataNascimento, int _cartaoSus, int _hArterial, int _diabetico, int _domiciliado, int _acamado, int _fumante, int _cancer, int _deficiente, int _gestante) {
+  /*  public Pessoa(String claudio_eckert, String general_câmara, int i, String _nome, String _endereco) {
         this.id = _id;
         this.nome = _nome;
         this.endereco = _endereco;
@@ -33,6 +58,7 @@ public class Pessoa {
         this.telefone = _telefone;
         this.dataNascimento = _dataNascimento;
         this.cartaoSus = _cartaoSus;
+        this.sexo = _sexo;
         this.hArterial = _hArterial;
         this.diabetico = _diabetico;
         this.domiciliado = _domiciliado;
@@ -43,7 +69,7 @@ public class Pessoa {
         this.gestante = _gestante;
     }
     //Inserir
-    public Pessoa( String _nome, String _endereco, int _numero, String _complemento, String _bairro, int _telefone, String _dataNascimento, int _cartaoSus, int _hArterial, int _diabetico, int _domiciliado, int _acamado, int _fumante, int _cancer, int _deficiente, int _gestante) {
+    public Pessoa(String claudio_eckert, String general_câmara, int i9, String fundos, String odila, int _nome, String _endereco, int i8, int i, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int _numero) {
         this.nome = _nome;
         this.endereco = _endereco;
         this.numero = _numero;
@@ -52,6 +78,7 @@ public class Pessoa {
         this.telefone = _telefone;
         this.dataNascimento = _dataNascimento;
         this.cartaoSus = _cartaoSus;
+        this.sexo = _sexo;
         this.hArterial = _hArterial;
         this.diabetico = _diabetico;
         this.domiciliado = _domiciliado;
@@ -60,7 +87,7 @@ public class Pessoa {
         this.cancer = _cancer;
         this.deficiente = _deficiente;
         this.gestante = _gestante;
-    }
+   }*/
     //-----------------------------------------
     public int getId() {
         return id;
@@ -132,6 +159,14 @@ public class Pessoa {
 
     public void setCartaoSus(int cartaoSus) {
         this.cartaoSus = cartaoSus;
+    }
+
+    public int getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(int sexo) {
+        this.sexo = sexo;
     }
 
     public int gethArterial() {

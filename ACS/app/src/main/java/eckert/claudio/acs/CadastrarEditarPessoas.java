@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class CadastrarEditarPessoas extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
     Switch swtHipertencaoArterial, swtDiabetico, swtDomiciliado, swtAcamado, swtFumante, swtCancer, swtDeficiente, swtGestante;
     Button btnExcluir, btnNovoRegistro, btnSalvar;
 
+    BDSqliteHelper db = new BDSqliteHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,14 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
         btnSalvar = findViewById(R.id.btnSalvar);
 
+        //---Teste do CRUD--
+
+        //db.addPessoa(new Pessoa("Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
+        db.addPessoa(new Pessoa(1,"Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
+
+
+
+        Toast.makeText(CadastrarEditarPessoas.this,"Salvo com sucesso",Toast.LENGTH_LONG).show();
         }
     }
 

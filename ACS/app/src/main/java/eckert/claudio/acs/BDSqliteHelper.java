@@ -1,5 +1,6 @@
 package eckert.claudio.acs;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -67,6 +68,31 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     }
 
     //CRUD
+    void addPessoa(Pessoa pessoa){
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+
+        values.put(C_NOME, pessoa.getNome());
+        values.put(C_ENDERECO, pessoa.getEndereco());
+        values.put(C_COMPLEMENTO, pessoa.getBairro());
+        values.put(C_BAIRRO, pessoa.getBairro());
+        values.put(C_NUMERO, pessoa.getNumero());
+        values.put(C_TELEFONE, pessoa.getTelefone());
+        values.put(C_DATANASCIMENTO, pessoa.getDataNascimento());
+        values.put(C_CARTAOSUS, pessoa.getCartaoSus());
+        values.put(C_SEXO, pessoa.getSexo());
+        values.put(C_HARTERIAL, pessoa.gethArterial());
+        values.put(C_DIABETICO, pessoa.getDiabetico());
+        values.put(C_DOMICILIADO, pessoa.getDomiciliado());
+        values.put(C_ACAMADO, pessoa.getAcamado());
+        values.put(C_FUMANTE, pessoa.getFumante());
+        values.put(C_CANCER, pessoa.getCancer());
+        values.put(C_DEFICIENTE, pessoa.getDeficiente());
+        values.put(C_GESTANTE, pessoa.getGestante());
+
+        db.insert(TABELA_PESSOA, null, values);
+        db.close();
+    }
 
 }
