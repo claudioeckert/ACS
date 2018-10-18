@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/*public class BDSqliteHelper extends SQLiteOpenHelper {
+public class BDSqliteHelper extends SQLiteOpenHelper {
 
     private static final int VERSAO_BANCO = 1;
     private static final String NOME_BANCO = "bd_acs";
@@ -32,7 +32,7 @@ import android.database.sqlite.SQLiteOpenHelper;
     private static final String C_GESTANTE = "gestante";
 
     public BDSqliteHelper(Context context){
-        super(context,NOME_BANCO, null, VERSAO_BANCO);
+        super(context, NOME_BANCO, null, VERSAO_BANCO);
     }
 
     @Override
@@ -41,20 +41,20 @@ import android.database.sqlite.SQLiteOpenHelper;
                 + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + C_NOME + " TEXT,"
                 + C_ENDERECO + " TEXT,"
-                + C_COMPLEMENTO + " TEXT"
-                + C_BAIRRO + " TEXT"
-                + C_NUMERO + " INTEGER"
-                + C_TELEFONE + " INTEGER"
-                + C_DATANASCIMENTO + " TEXT"
-                + C_CARTAOSUS + " INTEGER"
-                + C_SEXO + " INTEGER"
-                + C_HARTERIAL + " INTEGER"
-                + C_DIABETICO + " INTEGER"
-                + C_DOMICILIADO + " INTEGER"
-                + C_ACAMADO + " INTEGER"
-                + C_FUMANTE + " INTEGER"
-                + C_CANCER + " INTEGER"
-                + C_DEFICIENTE + " INTEGER"
+                + C_COMPLEMENTO + " TEXT,"
+                + C_BAIRRO + " TEXT,"
+                + C_NUMERO + " INTEGER,"
+                + C_TELEFONE + " INTEGER,"
+                + C_DATANASCIMENTO + " TEXT,"
+                + C_CARTAOSUS + " INTEGER,"
+                + C_SEXO + " INTEGER,"
+                + C_HARTERIAL + " INTEGER,"
+                + C_DIABETICO + " INTEGER,"
+                + C_DOMICILIADO + " INTEGER,"
+                + C_ACAMADO + " INTEGER,"
+                + C_FUMANTE + " INTEGER,"
+                + C_CANCER + " INTEGER,"
+                + C_DEFICIENTE + " INTEGER,"
                 + C_GESTANTE + " INTEGER)";
 
 
@@ -70,4 +70,3 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 }
-*/
