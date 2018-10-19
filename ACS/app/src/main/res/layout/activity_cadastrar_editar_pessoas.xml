@@ -19,7 +19,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="850dp">
 
                 <TextView
                     android:id="@+id/txtNome"
@@ -94,10 +94,12 @@
 
                 <EditText
                     android:id="@+id/edtComplemento"
-                    android:layout_width="230dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    app:layout_constraintEnd_toStartOf="@+id/edtBairro"
                     app:layout_constraintStart_toStartOf="@+id/txtComplemento"
                     app:layout_constraintTop_toBottomOf="@+id/txtComplemento" />
 
@@ -114,7 +116,7 @@
 
                 <EditText
                     android:id="@+id/edtBairro"
-                    android:layout_width="120dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
@@ -132,7 +134,7 @@
 
                 <EditText
                     android:id="@+id/edtTelefone"
-                    android:layout_width="110dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="phone"
@@ -141,12 +143,11 @@
 
                 <Button
                     android:id="@+id/btnMaisTelefones"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@android:drawable/ic_input_add"
-                    app:layout_constraintBottom_toTopOf="@+id/edtTelefone"
-                    app:layout_constraintEnd_toEndOf="@+id/edtTelefone"
-                    app:layout_constraintTop_toTopOf="@+id/txtTelefone1" />
+                    app:layout_constraintBottom_toBottomOf="@+id/edtTelefone"
+                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus" />
 
                 <TextView
                     android:id="@+id/txtDataNascimento"
@@ -161,30 +162,27 @@
                     android:id="@+id/edtDataNscimento"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
                     android:ems="10"
                     android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/edtCartaoSus"
-                    app:layout_constraintStart_toEndOf="@+id/edtTelefone"
+                    app:layout_constraintEnd_toEndOf="@+id/edtBairro"
                     app:layout_constraintTop_toBottomOf="@+id/txtDataNascimento" />
 
                 <TextView
                     android:id="@+id/txtCartaoSus"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/lbl_CartaoSus"
-                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
-                    app:layout_constraintStart_toStartOf="@+id/edtCartaoSus"
-                    app:layout_constraintTop_toTopOf="@+id/txtDataNascimento" />
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefone"
+                    app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
 
                 <EditText
                     android:id="@+id/edtCartaoSus"
-                    android:layout_width="110dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
+                    app:layout_constraintStart_toStartOf="@+id/txtCartaoSus"
                     app:layout_constraintTop_toBottomOf="@+id/txtCartaoSus" />
 
                 <RadioGroup
@@ -194,38 +192,30 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
                     android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
+                    app:layout_constraintEnd_toEndOf="@+id/edtBairro"
                     app:layout_constraintStart_toStartOf="@+id/edtTelefone"
-                    app:layout_constraintTop_toBottomOf="@+id/edtDataNscimento">
+                    app:layout_constraintTop_toBottomOf="@+id/edtCartaoSus">
 
-                    <LinearLayout
+                    <RadioButton
+                        android:id="@+id/rdbMasculino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:text="@string/rdb_masculino" />
 
-                        <RadioButton
-                            android:id="@+id/rdbMasculino"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/rdb_masculino" />
+                    <RadioButton
+                        android:id="@+id/rdbFeminino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/rdb_feminino" />
 
-                        <RadioButton
-                            android:id="@+id/rdbFeminino"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/rdb_feminino" />
-
-                        <RadioButton
-                            android:id="@+id/rdbOutros"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/rdb_outros" />
-
-                    </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/rdbOutros"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/rdb_outros" />
 
                 </RadioGroup>
 
@@ -249,50 +239,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/divider"
                     app:layout_constraintStart_toStartOf="@+id/divider"
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="0dp"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="16dp"
-                    android:background="?android:attr/listDivider"
-                    app:layout_constraintEnd_toEndOf="@+id/divider"
-                    app:layout_constraintStart_toStartOf="@+id/divider"
-                    app:layout_constraintTop_toBottomOf="@+id/cbDeficiente" />
-
-                <Button
-                    android:id="@+id/btnExcluir"
-                    android:layout_width="88dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/btn_Excluir"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/divider2"
-                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-                <Button
-                    android:id="@+id/btnNovoRegistro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/btn_NovoRegistro"
-                    android:textColor="@android:color/holo_blue_bright"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
-                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-                <Button
-                    android:id="@+id/btnSalvar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/btn_Salvar"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/divider2"
-                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
                 <CheckBox
                     android:id="@+id/cbHipertencaoArterial"
@@ -369,6 +315,76 @@
                     android:text="@string/cb_Gestante"
                     app:layout_constraintStart_toStartOf="@+id/cbCancer"
                     app:layout_constraintTop_toBottomOf="@+id/cbCancer" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider"
+                    app:layout_constraintStart_toStartOf="@+id/divider"
+                    app:layout_constraintTop_toBottomOf="@+id/cbDeficiente" />
+
+                <CheckBox
+                    android:id="@+id/cbFalecido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_Falecido"
+                    app:layout_constraintStart_toStartOf="@+id/cbGestante"
+                    app:layout_constraintTop_toTopOf="@+id/cbResponsavel" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider"
+                    app:layout_constraintStart_toStartOf="@+id/divider"
+                    app:layout_constraintTop_toBottomOf="@+id/cbResponsavel" />
+
+                <CheckBox
+                    android:id="@+id/cbResponsavel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cb_Responsavel"
+                    app:layout_constraintStart_toStartOf="@+id/cbDeficiente"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+                <Button
+                    android:id="@+id/btnExcluir"
+                    android:layout_width="88dp"
+                    android:layout_height="40dp"
+                    android:text="@string/btn_Excluir"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="14sp"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="754dp" />
+
+                <Button
+                    android:id="@+id/btnSalvar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/btn_Salvar"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="14sp"
+                    tools:layout_editor_absoluteX="288dp"
+                    tools:layout_editor_absoluteY="751dp" />
+
+                <Button
+                    android:id="@+id/btnNovoRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/btn_NovoRegistro"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+                    tools:layout_editor_absoluteY="760dp" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

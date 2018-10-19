@@ -13,6 +13,9 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 public class CadastrarEditarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtEndereco, edtNumeroEndereco, edtComplemento, edtBairro,edtTelefone, edtDataNscimento, edtCartaoSus;
@@ -52,6 +55,25 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
         btnSalvar = findViewById(R.id.btnSalvar);
+
+        //Mascara de entrada para os campos
+        //Telefone
+        SimpleMaskFormatter telefone = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
+        MaskTextWatcher mtwTelefone = new MaskTextWatcher(edtTelefone,telefone);
+        edtTelefone.addTextChangedListener(mtwTelefone);
+        //Fim
+        //Data de nascimento
+        SimpleMaskFormatter dataNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher mtwDataNascimento = new MaskTextWatcher(edtDataNscimento,dataNascimento);
+        edtDataNscimento.addTextChangedListener(mtwDataNascimento);
+        //Fim
+        //Cartão Sus
+        SimpleMaskFormatter cartaoSus = new SimpleMaskFormatter("NNN-NNNN-NNNN-NNNN");
+        MaskTextWatcher mtwCartaoSus = new MaskTextWatcher(edtCartaoSus,cartaoSus);
+        edtCartaoSus.addTextChangedListener(mtwCartaoSus);
+
+            //Fim
+        //Fim da mascara
 
         //---Teste do CRUD--
 
