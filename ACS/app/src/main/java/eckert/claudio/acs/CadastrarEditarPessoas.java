@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
@@ -16,7 +17,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtEndereco, edtNumeroEndereco, edtComplemento, edtBairro,edtTelefone, edtDataNscimento, edtCartaoSus;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros;
-    Switch swtHipertencaoArterial, swtDiabetico, swtDomiciliado, swtAcamado, swtFumante, swtCancer, swtDeficiente, swtGestante;
+    CheckBox cbtHipertencaoArterial, cbtDiabetico, cbtDomiciliado, cbtAcamado, cbtFumante, cbtCancer, cbtDeficiente, cbtGestante;
     Button btnExcluir, btnNovoRegistro, btnSalvar;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
@@ -39,14 +40,14 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         rdbFeminino = findViewById(R.id.rdbFeminino);
         rdbOutros = findViewById(R.id.rdbOutros);
 
-        swtHipertencaoArterial = findViewById(R.id.swtHipertencaoArterial);
-        swtDiabetico = findViewById(R.id.swtDiabetico);
-        swtDomiciliado = findViewById(R.id.swtDomiciliado);
-        swtAcamado = findViewById(R.id.swtAcamado);
-        swtFumante = findViewById(R.id.swtFumante);
-        swtCancer = findViewById(R.id.swtCancer);
-        swtDeficiente = findViewById(R.id.swtDeficiente);
-        swtGestante = findViewById(R.id.swtGestante);
+        cbtHipertencaoArterial = findViewById(R.id.cbHipertencaoArterial);
+        cbtDiabetico = findViewById(R.id.cbDiabetico);
+        cbtDomiciliado = findViewById(R.id.cbDomiciliado);
+        cbtAcamado = findViewById(R.id.cbAcamado);
+        cbtFumante = findViewById(R.id.cbFumante);
+        cbtCancer = findViewById(R.id.cbCancer);
+        cbtDeficiente = findViewById(R.id.cbDeficiente);
+        cbtGestante = findViewById(R.id.cbGestante);
 
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ACS</string>
     <string name="title_activity_geral">Geral</string>
+    <string name="title_activity_login">Login</string>
     <string name="lbl_nome">Nome Completo</string>
     <string name="lbl_endereco">Endereço</string>
     <string name="lbl_NumeroEndereco">Número</string>
@@ -10,15 +11,15 @@
     <string name="rdb_masculino">Masculino</string>
     <string name="rdb_feminino">Feminino</string>
     <string name="rdb_outros">Outros</string>
-    <string name="lbl_enfermidades">Condicionalidades</string>
-    <string name="swt_HipertencaoArterial">H. Arterial</string>
-    <string name="sw_tDiabetico">Diabético</string>
-    <string name="swt_Cancer">Câncer</string>
-    <string name="swt_Fumante">Fumante</string>
-    <string name="swt_Domiciliado">Domiciliado</string>
-    <string name="swt_Acamado">Acamado</string>
-    <string name="swt_Deficiente">Deficiente</string>
-    <string name="swt_Gestante">Gestante</string>
+    <string name="lbl_condicionalidades">Condicionalidades</string>
+    <string name="cb_HipertencaoArterial">H. Arterial</string>
+    <string name="cb_tDiabetico">Diabético</string>
+    <string name="cb_Cancer">Câncer</string>
+    <string name="cb_Fumante">Fumante</string>
+    <string name="cb_Domiciliado">Domiciliado</string>
+    <string name="cb_Acamado">Acamado</string>
+    <string name="cb_Deficiente">Deficiente</string>
+    <string name="cb_Gestante">Gestante</string>
     <string name="btn_Salvar">Salvar</string>
     <string name="btn_Excluir">Excluir</string>
     <string name="btn_NovoRegistro">Adicionar</string>
