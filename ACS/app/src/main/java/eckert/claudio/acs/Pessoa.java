@@ -19,9 +19,12 @@ public class Pessoa {
     int cancer;
     int deficiente;
     int gestante;
+    int responsavelFamiliar;
+    int falecido;
+    int ativoInativo;
 //-------------------------
 
-    public Pessoa(int id, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante) {
+    public Pessoa(int id, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante, int responsavelFamiliar, int falecido, int ativoInativo) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -40,6 +43,9 @@ public class Pessoa {
         this.cancer = cancer;
         this.deficiente = deficiente;
         this.gestante = gestante;
+        this.responsavelFamiliar = responsavelFamiliar;
+        this.falecido = falecido;
+        this.ativoInativo = ativoInativo;
     }
 
 
@@ -231,5 +237,29 @@ public class Pessoa {
 
     public void setGestante(int gestante) {
         this.gestante = gestante;
+    }
+
+    public int getResponsavelFamiliar() {
+        return responsavelFamiliar;
+    }
+
+    public void setResponsavelFamiliar(int responsavelFamiliar) {
+        this.responsavelFamiliar = responsavelFamiliar;
+    }
+
+    public int getFalecido() {
+        return falecido;
+    }
+
+    public void setFalecido(int falecido) {
+        this.falecido = falecido;
+    }
+
+    public int getAtivoInativo() {
+        return ativoInativo;
+    }
+
+    public void setAtivoInativo(int ativoInativo) {
+        this.ativoInativo = ativoInativo;
     }
 }

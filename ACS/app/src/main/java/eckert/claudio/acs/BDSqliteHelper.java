@@ -31,6 +31,9 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     private static final String C_CANCER = "cancer";
     private static final String C_DEFICIENTE = "deficiente";
     private static final String C_GESTANTE = "gestante";
+    private static final String C_RESPONSAVELFAMILIAR = "responsavelFamiliar";
+    private static final String C_FALECIDO = "falecido";
+    private static final String C_ATIVOINATIVO = "ativoInativo";
 
     public BDSqliteHelper(Context context){
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -56,8 +59,10 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
                 + C_FUMANTE + " INTEGER,"
                 + C_CANCER + " INTEGER,"
                 + C_DEFICIENTE + " INTEGER,"
-                + C_GESTANTE + " INTEGER)";
-
+                + C_GESTANTE + " INTEGER,"
+                + C_RESPONSAVELFAMILIAR + "INTEGER,"
+                + C_FALECIDO + "INTEGER,"
+                + C_ATIVOINATIVO + "INTEGER)";
 
         db.execSQL(CREATE_TABLE);
     }
@@ -75,7 +80,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
 
         values.put(C_NOME, pessoa.getNome());
         values.put(C_ENDERECO, pessoa.getEndereco());
-        values.put(C_COMPLEMENTO, pessoa.getBairro());
+        values.put(C_COMPLEMENTO, pessoa.getComplemento());
         values.put(C_BAIRRO, pessoa.getBairro());
         values.put(C_NUMERO, pessoa.getNumero());
         values.put(C_TELEFONE, pessoa.getTelefone());
@@ -90,6 +95,10 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         values.put(C_CANCER, pessoa.getCancer());
         values.put(C_DEFICIENTE, pessoa.getDeficiente());
         values.put(C_GESTANTE, pessoa.getGestante());
+        values.put(C_RESPONSAVELFAMILIAR, pessoa.getResponsavelFamiliar());
+        values.put(C_FALECIDO, pessoa.getFalecido());
+        values.put(C_ATIVOINATIVO, pessoa.getAtivoInativo());
+
 
         db.insert(TABELA_PESSOA, null, values);
         db.close();

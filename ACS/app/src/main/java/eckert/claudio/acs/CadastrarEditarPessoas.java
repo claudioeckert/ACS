@@ -79,10 +79,13 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
             //Fim
         //Fim da mascara
 
+
+
+
         //---Teste do CRUD--
 
         //db.addPessoa(new Pessoa("Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
-        db.addPessoa(new Pessoa(1,"Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
+        db.addPessoa(new Pessoa(1,"Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1,1,1,1));
 
 
 
