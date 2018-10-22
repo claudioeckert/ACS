@@ -32,4 +32,6 @@
     <string name="lbl_Bairro">Bairro</string>
     <string name="cb_Responsavel">Responsável Familiar</string>
     <string name="cb_Falecido">Falecido</string>
+    <string name="rdb_Ativo">Ativo</string>
+    <string name="rdb_Inativo">Inativo</string>
 </resources>

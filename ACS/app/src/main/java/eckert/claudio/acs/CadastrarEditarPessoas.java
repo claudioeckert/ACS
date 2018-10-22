@@ -19,8 +19,8 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 public class CadastrarEditarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtEndereco, edtNumeroEndereco, edtComplemento, edtBairro,edtTelefone, edtDataNscimento, edtCartaoSus;
-    RadioButton rdbMasculino, rdbFeminino, rdbOutros;
-    CheckBox cbtHipertencaoArterial, cbtDiabetico, cbtDomiciliado, cbtAcamado, cbtFumante, cbtCancer, cbtDeficiente, cbtGestante;
+    RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
+    CheckBox cbtHipertencaoArterial, cbtDiabetico, cbtDomiciliado, cbtAcamado, cbtFumante, cbtCancer, cbtDeficiente, cbtGestante, cbResponsavel, cbFalecido;
     Button btnExcluir, btnNovoRegistro, btnSalvar;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
@@ -42,6 +42,8 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         rdbMasculino = findViewById(R.id.rdbMasculino);
         rdbFeminino = findViewById(R.id.rdbFeminino);
         rdbOutros = findViewById(R.id.rdbOutros);
+        rdbAtivo = findViewById(R.id.rdbAtivo);
+        rdbInativo = findViewById(R.id.rdbInativo);
 
         cbtHipertencaoArterial = findViewById(R.id.cbHipertencaoArterial);
         cbtDiabetico = findViewById(R.id.cbDiabetico);
@@ -51,6 +53,8 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         cbtCancer = findViewById(R.id.cbCancer);
         cbtDeficiente = findViewById(R.id.cbDeficiente);
         cbtGestante = findViewById(R.id.cbGestante);
+        cbResponsavel = findViewById(R.id.cbResponsavel);
+        cbFalecido = findViewById(R.id.cbFalecido);
 
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
