@@ -14,6 +14,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     private static final String TABELA_PESSOA = "tb_pessoas";
 
     private static final String C_ID = "id";
+    private static final String C_IDRESPONSAVEL = "idResponsavel";
     private static final String C_NOME = "nome";
     private static final String C_ENDERECO = "endereco";
     private static final String C_COMPLEMENTO = "complemento";
@@ -43,6 +44,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABELA_PESSOA + "("
                 + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + C_IDRESPONSAVEL + " INT,"
                 + C_NOME + " TEXT,"
                 + C_ENDERECO + " TEXT,"
                 + C_COMPLEMENTO + " TEXT,"
@@ -60,9 +62,9 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
                 + C_CANCER + " INTEGER,"
                 + C_DEFICIENTE + " INTEGER,"
                 + C_GESTANTE + " INTEGER,"
-                + C_RESPONSAVELFAMILIAR + "INTEGER,"
-                + C_FALECIDO + "INTEGER,"
-                + C_ATIVOINATIVO + "INTEGER)";
+                + C_RESPONSAVELFAMILIAR + " INTEGER,"
+                + C_FALECIDO + " INTEGER,"
+                + C_ATIVOINATIVO + " INTEGER)";
 
         db.execSQL(CREATE_TABLE);
     }
@@ -78,6 +80,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
+        values.put(C_IDRESPONSAVEL, pessoa.getIdResponsavel());
         values.put(C_NOME, pessoa.getNome());
         values.put(C_ENDERECO, pessoa.getEndereco());
         values.put(C_COMPLEMENTO, pessoa.getComplemento());

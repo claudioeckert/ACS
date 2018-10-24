@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtNumeroFamilia"
+        android:id="@+id/txtIdFamilia"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtNomeChefeFamilia"
+        android:id="@+id/txtNomeResponsavelFamilia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/txtCartaoSus"
-        app:layout_constraintStart_toEndOf="@+id/txtNumeroFamilia"
+        app:layout_constraintStart_toEndOf="@+id/txtIdFamilia"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

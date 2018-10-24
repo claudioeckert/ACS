@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ACS</string>
     <string name="title_activity_geral">Geral</string>
+    <string name="title_activity_cadastrar_editar_pessoas">CadastrarEditarPessoas</string>
     <string name="title_activity_login">Login</string>
     <string name="lbl_nome">Nome Completo</string>
     <string name="lbl_endereco">Endereço</string>

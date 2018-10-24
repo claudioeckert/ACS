@@ -1,16 +1,14 @@
 package eckert.claudio.acs;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Switch;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -20,7 +18,8 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtEndereco, edtNumeroEndereco, edtComplemento, edtBairro,edtTelefone, edtDataNscimento, edtCartaoSus;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
-    CheckBox cbtHipertencaoArterial, cbtDiabetico, cbtDomiciliado, cbtAcamado, cbtFumante, cbtCancer, cbtDeficiente, cbtGestante, cbResponsavel, cbFalecido;
+    Spinner spResponsavelFamiliar;
+    CheckBox cbHipertencaoArterial, cbDiabetico, cbDomiciliado, cbAcamado, cbFumante, cbCancer, cbDeficiente, cbGestante, cbResponsavel, cbFalecido;
     Button btnExcluir, btnNovoRegistro, btnSalvar;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
@@ -45,16 +44,18 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         rdbAtivo = findViewById(R.id.rdbAtivo);
         rdbInativo = findViewById(R.id.rdbInativo);
 
-        cbtHipertencaoArterial = findViewById(R.id.cbHipertencaoArterial);
-        cbtDiabetico = findViewById(R.id.cbDiabetico);
-        cbtDomiciliado = findViewById(R.id.cbDomiciliado);
-        cbtAcamado = findViewById(R.id.cbAcamado);
-        cbtFumante = findViewById(R.id.cbFumante);
-        cbtCancer = findViewById(R.id.cbCancer);
-        cbtDeficiente = findViewById(R.id.cbDeficiente);
-        cbtGestante = findViewById(R.id.cbGestante);
+        cbHipertencaoArterial = findViewById(R.id.cbHipertencaoArterial);
+        cbDiabetico = findViewById(R.id.cbDiabetico);
+        cbDomiciliado = findViewById(R.id.cbDomiciliado);
+        cbAcamado = findViewById(R.id.cbAcamado);
+        cbFumante = findViewById(R.id.cbFumante);
+        cbCancer = findViewById(R.id.cbCancer);
+        cbDeficiente = findViewById(R.id.cbDeficiente);
+        cbGestante = findViewById(R.id.cbGestante);
         cbResponsavel = findViewById(R.id.cbResponsavel);
         cbFalecido = findViewById(R.id.cbFalecido);
+
+        spResponsavelFamiliar = findViewById(R.id.spResponsavelFamiliar);
 
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
@@ -85,11 +86,25 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         //---Teste do CRUD--
 
         //db.addPessoa(new Pessoa("Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
-        db.addPessoa(new Pessoa(1,"Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1,1,1,1));
-
-
+        db.addPessoa(new Pessoa(0,"Claudio Jorge Eckert Junior","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,1,0,0));
+        db.addPessoa(new Pessoa(1,"Aline Beatris Braatz Eckert","General Câmara",55,"Fundos","Odila",991580666,"17051985",987654321,1,0,0,0,0,0,0,0,0,0,0,0));
+        db.addPessoa(new Pessoa(1,"Beiçola popular Sola","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
+        db.addPessoa(new Pessoa(0,"Leontina popular Tina","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,1,0,0));
+        db.addPessoa(new Pessoa(4,"Chigi popular Chi","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
+        db.addPessoa(new Pessoa(4,"Teteu popular Teu","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
 
         Toast.makeText(CadastrarEditarPessoas.this,"Salvo com sucesso",Toast.LENGTH_LONG).show();
         }
+
+
+
+        //Botão teste para abrir a tela Geral
+
+    public void abrirActivityGeral (View v2){
+        startActivity(new Intent(getBaseContext(),Geral.class));
+
+        }
+
+    //Fim do botão
     }
 

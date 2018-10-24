@@ -2,6 +2,7 @@ package eckert.claudio.acs;
 
 public class Pessoa {
     int id;
+    int idResponsavel;
     String nome;
     String endereco;
     int numero;
@@ -24,8 +25,9 @@ public class Pessoa {
     int ativoInativo;
 //-------------------------
 
-    public Pessoa(int id, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante, int responsavelFamiliar, int falecido, int ativoInativo) {
-        this.id = id;
+    public Pessoa(/*int id*/int idResponsavel, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante, int responsavelFamiliar, int falecido, int ativoInativo) {
+        //this.id = id;
+        this.idResponsavel = idResponsavel;
         this.nome = nome;
         this.endereco = endereco;
         this.numero = numero;
@@ -101,6 +103,14 @@ public class Pessoa {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdResponsavel() {
+        return idResponsavel;
+    }
+
+    public void setIdResponsavel(int idResponsavel) {
+        this.idResponsavel = idResponsavel;
     }
 
     public String getNome() {
@@ -262,4 +272,9 @@ public class Pessoa {
     public void setAtivoInativo(int ativoInativo) {
         this.ativoInativo = ativoInativo;
     }
+
+
+
+
 }
+
