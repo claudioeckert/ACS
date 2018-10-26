@@ -40,7 +40,7 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
     private void buscarDados(){
         try{
             db = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE,null);
-            cursor = db.rawQuery("SELECT _id, idResponsavel, nome, cartaoSus, dataNascimento FROM tb_pessoas WHERE responsavelFamiliar = 1", null, null);
+            cursor = db.rawQuery("SELECT _id, idResponsavel, nome, cartaoSus, dataNascimento FROM tb_pessoas WHERE responsavelFamiliar = '1'", null, null);
            // db.close();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();

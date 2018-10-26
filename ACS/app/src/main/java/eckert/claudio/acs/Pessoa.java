@@ -5,28 +5,27 @@ public class Pessoa {
     int idResponsavel;
     String nome;
     String endereco;
-    int numero;
+    String numero;
     String complemento;
     String bairro;
-    int telefone;
+    String telefone;
     String dataNascimento;
-    int cartaoSus;
-    int sexo;
-    int hArterial;
-    int diabetico;
-    int domiciliado;
-    int acamado;
-    int fumante;
-    int cancer;
-    int deficiente;
-    int gestante;
-    int responsavelFamiliar;
-    int falecido;
-    int ativoInativo;
+    String cartaoSus;
+    String sexo;
+    String hArterial;
+    String diabetico;
+    String domiciliado;
+    String acamado;
+    String fumante;
+    String cancer;
+    String deficiente;
+    String gestante;
+    String responsavelFamiliar;
+    String falecido;
+    String ativoInativo;
 //-------------------------
 
-    public Pessoa(/*int idid*/int idResponsavel, String nome, String endereco, int numero, String complemento, String bairro, int telefone, String dataNascimento, int cartaoSus, int sexo, int hArterial, int diabetico, int domiciliado, int acamado, int fumante, int cancer, int deficiente, int gestante, int responsavelFamiliar, int falecido, int ativoInativo) {
-        //this.idid = idid;
+    public Pessoa(/*int idid*/int idResponsavel, String nome, String endereco, String numero, String complemento, String bairro, String telefone, String dataNascimento, String cartaoSus, String sexo, String hArterial, String diabetico, String domiciliado, String acamado, String fumante, String cancer, String deficiente, String gestante, String responsavelFamiliar, String falecido, String ativoInativo) {        //this.idid = idid;
         this.idResponsavel = idResponsavel;
         this.nome = nome;
         this.endereco = endereco;
@@ -131,11 +130,11 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -155,11 +154,11 @@ public class Pessoa {
         this.bairro = bairro;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -171,112 +170,108 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getCartaoSus() {
+    public String getCartaoSus() {
         return cartaoSus;
     }
 
-    public void setCartaoSus(int cartaoSus) {
+    public void setCartaoSus(String cartaoSus) {
         this.cartaoSus = cartaoSus;
     }
 
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(int sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public int gethArterial() {
+    public String gethArterial() {
         return hArterial;
     }
 
-    public void sethArterial(int hArterial) {
+    public void sethArterial(String hArterial) {
         this.hArterial = hArterial;
     }
 
-    public int getDiabetico() {
+    public String getDiabetico() {
         return diabetico;
     }
 
-    public void setDiabetico(int diabetico) {
+    public void setDiabetico(String diabetico) {
         this.diabetico = diabetico;
     }
 
-    public int getDomiciliado() {
+    public String getDomiciliado() {
         return domiciliado;
     }
 
-    public void setDomiciliado(int domiciliado) {
+    public void setDomiciliado(String domiciliado) {
         this.domiciliado = domiciliado;
     }
 
-    public int getAcamado() {
+    public String getAcamado() {
         return acamado;
     }
 
-    public void setAcamado(int acamado) {
+    public void setAcamado(String acamado) {
         this.acamado = acamado;
     }
 
-    public int getFumante() {
+    public String getFumante() {
         return fumante;
     }
 
-    public void setFumante(int fumante) {
+    public void setFumante(String fumante) {
         this.fumante = fumante;
     }
 
-    public int getCancer() {
+    public String getCancer() {
         return cancer;
     }
 
-    public void setCancer(int cancer) {
+    public void setCancer(String cancer) {
         this.cancer = cancer;
     }
 
-    public int getDeficiente() {
+    public String getDeficiente() {
         return deficiente;
     }
 
-    public void setDeficiente(int deficiente) {
+    public void setDeficiente(String deficiente) {
         this.deficiente = deficiente;
     }
 
-    public int getGestante() {
+    public String getGestante() {
         return gestante;
     }
 
-    public void setGestante(int gestante) {
+    public void setGestante(String gestante) {
         this.gestante = gestante;
     }
 
-    public int getResponsavelFamiliar() {
+    public String getResponsavelFamiliar() {
         return responsavelFamiliar;
     }
 
-    public void setResponsavelFamiliar(int responsavelFamiliar) {
+    public void setResponsavelFamiliar(String responsavelFamiliar) {
         this.responsavelFamiliar = responsavelFamiliar;
     }
 
-    public int getFalecido() {
+    public String getFalecido() {
         return falecido;
     }
 
-    public void setFalecido(int falecido) {
+    public void setFalecido(String falecido) {
         this.falecido = falecido;
     }
 
-    public int getAtivoInativo() {
+    public String getAtivoInativo() {
         return ativoInativo;
     }
 
-    public void setAtivoInativo(int ativoInativo) {
+    public void setAtivoInativo(String ativoInativo) {
         this.ativoInativo = ativoInativo;
     }
-
-
-
-
 }
 

@@ -76,8 +76,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         SimpleMaskFormatter cartaoSus = new SimpleMaskFormatter("NNN-NNNN-NNNN-NNNN");
         MaskTextWatcher mtwCartaoSus = new MaskTextWatcher(edtCartaoSus,cartaoSus);
         edtCartaoSus.addTextChangedListener(mtwCartaoSus);
-
-            //Fim
+        //Fim
         //Fim da mascara
 
 
@@ -86,12 +85,17 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         //---Teste do CRUD--
 
         //db.addPessoa(new Pessoa("Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
-        db.addPessoa(new Pessoa(0,"Claudio Jorge Eckert Junior","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,1,0,0));
-        db.addPessoa(new Pessoa(1,"Aline Beatris Braatz Eckert","General Câmara",55,"Fundos","Odila",991580666,"17051985",987654321,1,0,0,0,0,0,0,0,0,0,0,0));
-        db.addPessoa(new Pessoa(1,"Beiçola popular Sola","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
-        db.addPessoa(new Pessoa(0,"Leontina popular Tina","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,1,0,0));
-        db.addPessoa(new Pessoa(4,"Chigi popular Chi","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
-        db.addPessoa(new Pessoa(4,"Teteu popular Teu","General Câmara",55,"Fundos","Odila",991685321,"17051985",700704982,0,0,0,0,0,0,0,0,0,0,0,0));
+        db.addPessoa(new Pessoa(2,"Claudio Jorge Eckert Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982545772","1","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(0,"Aline Beatris Braatz Eckert","General Câmara","55","Fundos APTO 51","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(0,"José da Silva Sauros Ramos Trento","General Câmara","55","Fundos","Odila","991580666","18121979","700704982","1","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(0,"Maria da Silva","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(4,"Mateus José Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(0,"Iasmin Braatz Both","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(6,"Bernardo Augusto Braatz Both","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(6,"Erich Somer","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","1","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(0,"Armin Braatz","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","1","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(3,"Marlize Scharowsky","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","0","0","0"));
+
 
         Toast.makeText(CadastrarEditarPessoas.this,"Salvo com sucesso",Toast.LENGTH_LONG).show();
         }
