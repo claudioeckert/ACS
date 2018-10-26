@@ -150,7 +150,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus" />
 
                 <TextView
-                    android:id="@+id/txtDataNascimento"
+                    android:id="@+id/txtListaDataNascimento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lbl_DataNascimento"
@@ -165,10 +165,10 @@
                     android:ems="10"
                     android:inputType="date"
                     app:layout_constraintEnd_toEndOf="@+id/edtBairro"
-                    app:layout_constraintTop_toBottomOf="@+id/txtDataNascimento" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtListaDataNascimento" />
 
                 <TextView
-                    android:id="@+id/txtCartaoSus"
+                    android:id="@+id/txtListaCartaoSus"
                     android:layout_width="wrap_content"
                     android:layout_height="15dp"
                     android:layout_marginTop="8dp"
@@ -182,8 +182,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    app:layout_constraintStart_toStartOf="@+id/txtCartaoSus"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCartaoSus" />
+                    app:layout_constraintStart_toStartOf="@+id/txtListaCartaoSus"
+                    app:layout_constraintTop_toBottomOf="@+id/txtListaCartaoSus" />
 
                 <RadioGroup
                     android:id="@+id/rdgSexo"

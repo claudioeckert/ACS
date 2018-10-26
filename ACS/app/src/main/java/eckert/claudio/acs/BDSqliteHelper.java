@@ -13,7 +13,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     //Tabela pessoas
     private static final String TABELA_PESSOA = "tb_pessoas";
 
-    private static final String C_ID = "id";
+    private static final String C_ID = "_id";
     private static final String C_IDRESPONSAVEL = "idResponsavel";
     private static final String C_NOME = "nome";
     private static final String C_ENDERECO = "endereco";

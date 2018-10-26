@@ -25,7 +25,7 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geral);
 
-        //ListView listaGeral = findViewById(R.id.lvGeral);
+       // ListView listaGeral = findViewById(R.id.lvResponsavelFamiliar);
 
 
         // Buscar dados
@@ -40,20 +40,34 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
     private void buscarDados(){
         try{
             db = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE,null);
-            cursor = db.rawQuery("SELECT * FROM tb_pessoa WHERE responsavelFamiliar = 1", null);
+            cursor = db.rawQuery("SELECT _id, idResponsavel, nome, cartaoSus, dataNascimento FROM tb_pessoas WHERE responsavelFamiliar = 1", null, null);
+           // db.close();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();
+         //   db.close();
         }
 
     }
 
     private void criarListagem(){
-        //pega o listView que conterá os dados
-        listViewGeral = findViewById(R.id.lvResponsavelFamiliar);
 
-        String[] from = {"id","idResponsavel","nome","cartaoSus","dataNascimento"};//campos da tabela
-        int[] to = {R.id.txtIdFamilia, R.id.txtNomeResponsavelFamilia, R.id.txtCartaoSus, R.id.txtDataNascimento}; //campos da lista modelo
-        ad = new SimpleCursorAdapter(getApplicationContext(),R.layout.lista_geral,cursor,from,to);
+        try {
+
+            if (cursor != null) {
+                cursor.moveToFirst();
+            }
+            //pega o listView que conterá os dados
+            listViewGeral = findViewById(R.id.lvResponsavelFamiliar);
+
+            String[] from = {"_id", "idResponsavel", "nome", "cartaoSus", "dataNascimento"};//campos da tabela
+            int[] to = {R.id.txtListaIdFamilia, R.id.txtListaNomeResponsavelFamilia, R.id.txtListaNomeResponsavelFamilia, R.id.txtListaCartaoSus, R.id.txtListaDataNascimento}; //campos da lista modelo
+            ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.lista_geral, cursor, from, to, 0);
+            listViewGeral.setAdapter(ad);
+           // db.close();
+        }catch (Exception e){
+            //db.close();
+            Toast.makeText(getApplicationContext(), "Erro criarListagem: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
