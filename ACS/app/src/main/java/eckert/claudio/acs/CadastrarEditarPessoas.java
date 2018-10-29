@@ -16,11 +16,11 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 public class CadastrarEditarPessoas extends AppCompatActivity {
 
-    EditText edtNome, edtEndereco, edtNumeroEndereco, edtComplemento, edtBairro,edtTelefone, edtDataNscimento, edtCartaoSus;
+    EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
-    Spinner spResponsavelFamiliar;
+    Spinner spResponsavelFamiliar, spEndereco, spBairro;
     CheckBox cbHipertencaoArterial, cbDiabetico, cbDomiciliado, cbAcamado, cbFumante, cbCancer, cbDeficiente, cbGestante, cbResponsavel, cbFalecido;
-    Button btnExcluir, btnNovoRegistro, btnSalvar;
+    Button btnExcluir, btnNovoRegistro, btnSalvar, btnCadastrarEndereco, btnCadastrarBairro;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
 
@@ -30,11 +30,13 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         setContentView(R.layout.activity_cadastrar_editar_pessoas);
 
         edtNome = findViewById(R.id.edtNome);
-        edtEndereco = findViewById(R.id.edtEndereco);
         edtNumeroEndereco = findViewById(R.id.edtNumeroEndereco);
         edtComplemento = findViewById(R.id.edtComplemento);
-        edtBairro = findViewById(R.id.edtBairro);
-        edtTelefone = findViewById(R.id.edtTelefone);
+
+        edtTelefoneResidencial = findViewById(R.id.edtTelefoneResidencial);
+        edtTelefoneCelular1 = findViewById(R.id.edtTelefoneCelular1);
+        edtTelefoneCelular2 = findViewById(R.id.edtTelefoneCelular2);
+        edtTelefoneCelular3 = findViewById(R.id.edtTelefoneCelular3);
         edtDataNscimento = findViewById(R.id.edtDataNscimento);
         edtCartaoSus = findViewById(R.id.edtCartaoSus);
 
@@ -56,17 +58,34 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         cbFalecido = findViewById(R.id.cbFalecido);
 
         spResponsavelFamiliar = findViewById(R.id.spResponsavelFamiliar);
+        spEndereco = findViewById(R.id.spEndereco);
+        spBairro = findViewById(R.id.spBairro);
 
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
         btnSalvar = findViewById(R.id.btnSalvar);
+        btnCadastrarEndereco = findViewById(R.id.btnCadastrarEndereco);
+        btnCadastrarBairro = findViewById(R.id.btnCadastrarBairro);
 
         //Mascara de entrada para os campos
-        //Telefone
-        SimpleMaskFormatter telefone = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
-        MaskTextWatcher mtwTelefone = new MaskTextWatcher(edtTelefone,telefone);
-        edtTelefone.addTextChangedListener(mtwTelefone);
+        //Telefones
+        SimpleMaskFormatter telefoneR = new SimpleMaskFormatter("(NN)NNNN-NNNN");
+        MaskTextWatcher mtwTelefoneR = new MaskTextWatcher(edtTelefoneResidencial,telefoneR);
+        edtTelefoneResidencial.addTextChangedListener(mtwTelefoneR);
+
+        SimpleMaskFormatter telefoneC1 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
+        MaskTextWatcher mtwTelefoneC1 = new MaskTextWatcher(edtTelefoneCelular1,telefoneC1);
+        edtTelefoneCelular1.addTextChangedListener(mtwTelefoneC1);
+
+        SimpleMaskFormatter telefoneC2 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
+        MaskTextWatcher mtwTelefoneC2 = new MaskTextWatcher(edtTelefoneCelular2,telefoneC2);
+        edtTelefoneCelular2.addTextChangedListener(mtwTelefoneC2);
+
+        SimpleMaskFormatter telefoneC3 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
+        MaskTextWatcher mtwTelefoneC3 = new MaskTextWatcher(edtTelefoneCelular3,telefoneC3);
+        edtTelefoneCelular3.addTextChangedListener(mtwTelefoneC3);
         //Fim
+
         //Data de nascimento
         SimpleMaskFormatter dataNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
         MaskTextWatcher mtwDataNascimento = new MaskTextWatcher(edtDataNscimento,dataNascimento);

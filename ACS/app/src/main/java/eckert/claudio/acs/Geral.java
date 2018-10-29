@@ -60,6 +60,7 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
             listViewGeral = findViewById(R.id.lvResponsavelFamiliar);
 
             String[] from = {"_id", "idResponsavel", "nome", "cartaoSus", "dataNascimento"};//campos da tabela
+
             int[] to = {R.id.txtListaIdFamilia, R.id.txtListaNomeResponsavelFamilia, R.id.txtListaNomeResponsavelFamilia, R.id.txtListaCartaoSus, R.id.txtListaDataNascimento}; //campos da lista modelo
             ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.lista_geral, cursor, from, to, 0);
             listViewGeral.setAdapter(ad);

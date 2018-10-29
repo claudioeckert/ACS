@@ -6,9 +6,9 @@
     <string name="lbl_nome">Nome Completo</string>
     <string name="lbl_endereco">Endereço</string>
     <string name="lbl_NumeroEndereco">Número</string>
-    <string name="lbl_telefone">Telefone</string>
+    <string name="lbl_TelefoneResidencialComerial">Telefone Residencial</string>
     <string name="lbl_CartaoSus">Cartão SUS</string>
-    <string name="lbl_DataNascimento">Dt. Nasc.</string>
+    <string name="lbl_DataNascimento">Dt. Nascimento</string>
     <string name="rdb_masculino">Masculino</string>
     <string name="rdb_feminino">Feminino</string>
     <string name="rdb_outros">Outros</string>
@@ -35,4 +35,6 @@
     <string name="cb_Falecido">Falecido</string>
     <string name="rdb_Ativo">Ativo</string>
     <string name="rdb_Inativo">Inativo</string>
+    <string name="lbl_TelefoneCelular">Celular</string>
+    <string name="btn_Cadastrar">Cadastrar</string>
 </resources>

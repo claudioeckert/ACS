@@ -53,15 +53,12 @@
                     app:layout_constraintStart_toStartOf="@+id/edtNome"
                     app:layout_constraintTop_toBottomOf="@+id/edtNome" />
 
-                <EditText
-                    android:id="@+id/edtEndereco"
+                <Spinner
+                    android:id="@+id/spEndereco"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toStartOf="@+id/txtNumeroEndereco"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/btnCadastrarEndereco"
                     app:layout_constraintStart_toStartOf="@+id/txtEndereco"
                     app:layout_constraintTop_toBottomOf="@+id/txtEndereco" />
 
@@ -69,10 +66,9 @@
                     android:id="@+id/txtNumeroEndereco"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="@string/lbl_NumeroEndereco"
                     app:layout_constraintEnd_toEndOf="@+id/edtNome"
-                    app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+                    app:layout_constraintTop_toTopOf="@+id/txtComplemento" />
 
                 <EditText
                     android:id="@+id/edtNumeroEndereco"
@@ -83,14 +79,23 @@
                     app:layout_constraintEnd_toEndOf="@+id/txtNumeroEndereco"
                     app:layout_constraintTop_toBottomOf="@+id/txtNumeroEndereco" />
 
+                <Button
+                    android:id="@+id/btnCadastrarEndereco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/btn_Cadastrar"
+                    app:layout_constraintEnd_toEndOf="@+id/edtNome"
+                    app:layout_constraintTop_toTopOf="@+id/txtEndereco" />
+
                 <TextView
                     android:id="@+id/txtComplemento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:text="@string/lbl_Complemento"
-                    app:layout_constraintStart_toStartOf="@+id/edtEndereco"
-                    app:layout_constraintTop_toBottomOf="@+id/edtEndereco" />
+                    app:layout_constraintStart_toStartOf="@+id/spEndereco"
+                    app:layout_constraintTop_toBottomOf="@+id/spEndereco" />
 
                 <EditText
                     android:id="@+id/edtComplemento"
@@ -99,7 +104,7 @@
                     android:layout_marginEnd="8dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    app:layout_constraintEnd_toStartOf="@+id/edtBairro"
+                    app:layout_constraintEnd_toStartOf="@+id/edtNumeroEndereco"
                     app:layout_constraintStart_toStartOf="@+id/txtComplemento"
                     app:layout_constraintTop_toBottomOf="@+id/txtComplemento" />
 
@@ -107,56 +112,73 @@
                     android:id="@+id/txtBairro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/lbl_Bairro"
-                    app:layout_constraintEnd_toEndOf="@+id/edtBairro"
-                    app:layout_constraintStart_toStartOf="@+id/edtBairro"
-                    app:layout_constraintTop_toTopOf="@+id/txtComplemento" />
+                    app:layout_constraintStart_toStartOf="@+id/edtComplemento"
+                    app:layout_constraintTop_toBottomOf="@+id/edtComplemento" />
 
-                <EditText
-                    android:id="@+id/edtBairro"
-                    android:layout_width="140dp"
+                <Spinner
+                    android:id="@+id/spBairro"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/btnCadastrarBairro"
+                    app:layout_constraintStart_toStartOf="@+id/txtBairro"
                     app:layout_constraintTop_toBottomOf="@+id/txtBairro" />
 
-                <TextView
-                    android:id="@+id/txtTelefone1"
+                <Button
+                    android:id="@+id/btnCadastrarBairro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/lbl_telefone"
-                    app:layout_constraintStart_toStartOf="@+id/edtEndereco"
-                    app:layout_constraintTop_toBottomOf="@+id/edtComplemento" />
+                    android:text="@string/btn_Cadastrar"
+                    app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
+                    app:layout_constraintTop_toTopOf="@+id/txtBairro" />
+
+                <TextView
+                    android:id="@+id/txtTelefoneResidencialComerial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/lbl_TelefoneResidencialComerial"
+                    app:layout_constraintStart_toStartOf="@+id/spBairro"
+                    app:layout_constraintTop_toBottomOf="@+id/spBairro" />
 
                 <EditText
-                    android:id="@+id/edtTelefone"
+                    android:id="@+id/edtTelefoneResidencial"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="phone"
-                    app:layout_constraintStart_toStartOf="@+id/txtTelefone1"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTelefone1" />
+                    app:layout_constraintStart_toStartOf="@+id/txtTelefoneResidencialComerial"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefoneResidencialComerial" />
 
-                <Button
-                    android:id="@+id/btnMaisTelefones"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:drawable/ic_input_add"
-                    app:layout_constraintBottom_toBottomOf="@+id/edtTelefone"
-                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus" />
+                <TextView
+                    android:id="@+id/txtTelefoneCelular1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_TelefoneCelular"
+                    app:layout_constraintEnd_toEndOf="@+id/edtTelefoneCelular1"
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefoneCelular1"
+                    app:layout_constraintTop_toTopOf="@+id/txtTelefoneResidencialComerial" />
+
+                <EditText
+                    android:id="@+id/edtTelefoneCelular1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone"
+                    app:layout_constraintEnd_toEndOf="@+id/btnCadastrarBairro"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefoneCelular1" />
 
                 <TextView
                     android:id="@+id/txtListaDataNascimento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/lbl_DataNascimento"
-                    app:layout_constraintEnd_toEndOf="@+id/edtDataNscimento"
-                    app:layout_constraintStart_toStartOf="@+id/edtDataNscimento"
-                    app:layout_constraintTop_toTopOf="@+id/txtTelefone1" />
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefoneResidencial"
+                    app:layout_constraintTop_toBottomOf="@+id/edtTelefoneCelular2" />
 
                 <EditText
                     android:id="@+id/edtDataNscimento"
@@ -164,17 +186,19 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="date"
-                    app:layout_constraintEnd_toEndOf="@+id/edtBairro"
+                    app:layout_constraintStart_toStartOf="@+id/txtListaDataNascimento"
                     app:layout_constraintTop_toBottomOf="@+id/txtListaDataNascimento" />
 
                 <TextView
                     android:id="@+id/txtListaCartaoSus"
                     android:layout_width="wrap_content"
-                    android:layout_height="15dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:text="@string/lbl_CartaoSus"
-                    app:layout_constraintStart_toStartOf="@+id/edtTelefone"
-                    app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
+                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
+                    app:layout_constraintStart_toStartOf="@+id/edtCartaoSus"
+                    app:layout_constraintTop_toTopOf="@+id/txtListaDataNascimento" />
 
                 <EditText
                     android:id="@+id/edtCartaoSus"
@@ -182,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    app:layout_constraintStart_toStartOf="@+id/txtListaCartaoSus"
+                    app:layout_constraintEnd_toEndOf="@+id/btnCadastrarBairro"
                     app:layout_constraintTop_toBottomOf="@+id/txtListaCartaoSus" />
 
                 <RadioGroup
@@ -192,8 +216,8 @@
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
                     android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="@+id/edtBairro"
-                    app:layout_constraintStart_toStartOf="@+id/edtTelefone"
+                    app:layout_constraintEnd_toEndOf="@+id/edtCartaoSus"
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefoneResidencial"
                     app:layout_constraintTop_toBottomOf="@+id/edtCartaoSus">
 
                     <RadioButton
@@ -457,6 +481,42 @@
                     app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
                     app:layout_constraintStart_toStartOf="@+id/btnExcluir"
                     app:layout_constraintTop_toBottomOf="@+id/btnExcluir" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/lbl_TelefoneCelular"
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefoneResidencial"
+                    app:layout_constraintTop_toBottomOf="@+id/edtTelefoneResidencial" />
+
+                <EditText
+                    android:id="@+id/edtTelefoneCelular2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_TelefoneCelular"
+                    app:layout_constraintEnd_toEndOf="@+id/edtTelefoneCelular3"
+                    app:layout_constraintStart_toStartOf="@+id/edtTelefoneCelular3"
+                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+                <EditText
+                    android:id="@+id/edtTelefoneCelular3"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone"
+                    app:layout_constraintEnd_toEndOf="@+id/edtTelefoneCelular1"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
