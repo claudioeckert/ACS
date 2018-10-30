@@ -16,7 +16,7 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 public class CadastrarEditarPessoas extends AppCompatActivity {
 
-    EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus;
+    EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus, edtResponsavelFamiliar;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
     Spinner spResponsavelFamiliar, spEndereco, spBairro;
     CheckBox cbHipertencaoArterial, cbDiabetico, cbDomiciliado, cbAcamado, cbFumante, cbCancer, cbDeficiente, cbGestante, cbResponsavel, cbFalecido;
@@ -32,6 +32,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         edtNome = findViewById(R.id.edtNome);
         edtNumeroEndereco = findViewById(R.id.edtNumeroEndereco);
         edtComplemento = findViewById(R.id.edtComplemento);
+        edtResponsavelFamiliar = findViewById(R.id.edtResponsavelFamiliar);
 
         edtTelefoneResidencial = findViewById(R.id.edtTelefoneResidencial);
         edtTelefoneCelular1 = findViewById(R.id.edtTelefoneCelular1);
@@ -96,6 +97,11 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         MaskTextWatcher mtwCartaoSus = new MaskTextWatcher(edtCartaoSus,cartaoSus);
         edtCartaoSus.addTextChangedListener(mtwCartaoSus);
         //Fim
+        //Número da família
+        SimpleMaskFormatter idResponsavelFamiliar = new SimpleMaskFormatter("NNN");
+        MaskTextWatcher mtwIdResponsavelFamiliar = new MaskTextWatcher(edtResponsavelFamiliar,idResponsavelFamiliar);
+        edtResponsavelFamiliar.addTextChangedListener(mtwIdResponsavelFamiliar);
+        //Fim
         //Fim da mascara
 
 
@@ -104,16 +110,11 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         //---Teste do CRUD--
 
         //db.addPessoa(new Pessoa("Claudio Eckert","General Câmara",55,"Fundos","Odila",991685321,"17051985",123456789,1,1,1,1,1,1,1,1,1));
-        db.addPessoa(new Pessoa(2,"Claudio Jorge Eckert Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982545772","1","0","0","0","0","0","0","0","0","1","0","0"));
-        db.addPessoa(new Pessoa(0,"Aline Beatris Braatz Eckert","General Câmara","55","Fundos APTO 51","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","0","0","0"));
-        db.addPessoa(new Pessoa(0,"José da Silva Sauros Ramos Trento","General Câmara","55","Fundos","Odila","991580666","18121979","700704982","1","0","0","0","0","0","0","0","0","1","0","0"));
-        db.addPessoa(new Pessoa(0,"Maria da Silva","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
-        db.addPessoa(new Pessoa(4,"Mateus José Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
-        db.addPessoa(new Pessoa(0,"Iasmin Braatz Both","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
-        db.addPessoa(new Pessoa(6,"Bernardo Augusto Braatz Both","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
-        db.addPessoa(new Pessoa(6,"Erich Somer","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","1","0","0","0","0","0","0","0","0","0"));
-        db.addPessoa(new Pessoa(0,"Armin Braatz","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","1","0","0","0","0","0","0","1","0","0"));
-        db.addPessoa(new Pessoa(3,"Marlize Scharowsky","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(80,"Claudio Jorge Eckert Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982545772","1","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(130,"Aline Beatris Braatz Eckert","General Câmara","55","Fundos APTO 51","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(25,"José da Silva Sauros Ramos Trento","General Câmara","55","Fundos","Odila","991580666","18121979","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
+        db.addPessoa(new Pessoa(65,"Maria da Silva","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","0","0","0","0","0","0","0","0","0","1","0","0"));
+        db.addPessoa(new Pessoa(42,"Mateus José Junior","General Câmara","55","Fundos","Odila","991685321","17051985","700704982","1","0","0","0","0","0","0","0","0","0","0","0"));
 
 
         Toast.makeText(CadastrarEditarPessoas.this,"Salvo com sucesso",Toast.LENGTH_LONG).show();

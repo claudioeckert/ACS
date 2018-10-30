@@ -85,6 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/btn_Cadastrar"
+                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/edtNome"
                     app:layout_constraintTop_toTopOf="@+id/txtEndereco" />
 
@@ -132,6 +134,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/btn_Cadastrar"
+                    android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
                     app:layout_constraintTop_toTopOf="@+id/txtBairro" />
 
@@ -354,31 +358,30 @@
 
                 <CheckBox
                     android:id="@+id/cbResponsavel"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="16dp"
+                    android:checked="false"
                     android:text="@string/cb_Responsavel"
-                    app:layout_constraintEnd_toStartOf="@+id/cbFalecido"
                     app:layout_constraintStart_toStartOf="@+id/rdgSexo"
                     app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-                <CheckBox
-                    android:id="@+id/cbFalecido"
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/txtResponsavelFamiliar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/cb_Falecido"
-                    app:layout_constraintEnd_toEndOf="@+id/rdgSexo"
-                    app:layout_constraintTop_toTopOf="@+id/cbResponsavel" />
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cb_Responsavel"
+                    app:layout_constraintStart_toStartOf="@+id/cbResponsavel"
+                    app:layout_constraintTop_toBottomOf="@+id/cbResponsavel" />
 
                 <Spinner
                     android:id="@+id/spResponsavelFamiliar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="@+id/cbFalecido"
                     app:layout_constraintStart_toStartOf="@+id/cbResponsavel"
-                    app:layout_constraintTop_toBottomOf="@+id/cbResponsavel" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtResponsavelFamiliar" />
 
                 <View
                     android:id="@+id/divider4"
@@ -397,7 +400,6 @@
                     android:layout_marginTop="16dp"
                     android:checkedButton="@+id/rdbAtivo"
                     android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="@+id/divider4"
                     app:layout_constraintStart_toStartOf="@+id/divider4"
                     app:layout_constraintTop_toBottomOf="@+id/divider4">
 
@@ -416,6 +418,15 @@
                         android:text="@string/rdb_Inativo" />
 
                 </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/cbFalecido"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cb_Falecido"
+                    app:layout_constraintEnd_toEndOf="@+id/divider4"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
                 <View
                     android:id="@+id/divider6"
@@ -459,17 +470,6 @@
                     app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
                     app:layout_constraintTop_toTopOf="@+id/btnExcluir" />
 
-                <TextView
-                    android:id="@+id/txtEspaco"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
-                    app:layout_constraintStart_toStartOf="@+id/btnExcluir"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
-
                 <Button
                     android:id="@+id/button"
                     android:layout_width="179dp"
@@ -483,7 +483,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/btnExcluir" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/txtEspaco"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
+                    app:layout_constraintStart_toStartOf="@+id/btnExcluir"
+                    app:layout_constraintTop_toBottomOf="@+id/button" />
+
+                <TextView
+                    android:id="@+id/txtTelefoneCelular2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -497,17 +508,17 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="phone"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintStart_toStartOf="@+id/txtTelefoneCelular2"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefoneCelular2" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtTelefoneCelular3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lbl_TelefoneCelular"
                     app:layout_constraintEnd_toEndOf="@+id/edtTelefoneCelular3"
                     app:layout_constraintStart_toStartOf="@+id/edtTelefoneCelular3"
-                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+                    app:layout_constraintTop_toTopOf="@+id/txtTelefoneCelular2" />
 
                 <EditText
                     android:id="@+id/edtTelefoneCelular3"
@@ -516,7 +527,26 @@
                     android:ems="10"
                     android:inputType="phone"
                     app:layout_constraintEnd_toEndOf="@+id/edtTelefoneCelular1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtTelefoneCelular3" />
+
+                <TextView
+                    android:id="@+id/txtNumeroFamilia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/lbl_NumeroFamiliaDigitado"
+                    app:layout_constraintEnd_toEndOf="@+id/divider"
+                    app:layout_constraintTop_toTopOf="@+id/cbResponsavel" />
+
+                <EditText
+                    android:id="@+id/edtResponsavelFamiliar"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="@+id/txtNumeroFamilia"
+                    app:layout_constraintStart_toStartOf="@+id/txtNumeroFamilia"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNumeroFamilia" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

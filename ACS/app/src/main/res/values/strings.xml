@@ -37,4 +37,5 @@
     <string name="rdb_Inativo">Inativo</string>
     <string name="lbl_TelefoneCelular">Celular</string>
     <string name="btn_Cadastrar">Cadastrar</string>
+    <string name="lbl_NumeroFamiliaDigitado">Número da família</string>
 </resources>
