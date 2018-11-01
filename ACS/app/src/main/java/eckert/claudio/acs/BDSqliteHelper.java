@@ -35,6 +35,22 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     private static final String C_RESPONSAVELFAMILIAR = "responsavelFamiliar";
     private static final String C_FALECIDO = "falecido";
     private static final String C_ATIVOINATIVO = "ativoInativo";
+    //Fim
+
+    //Tabela Endereço
+    private static final String TABELA_RUA = "tb_rua";
+
+    private static final String C_ID_TB_RUA = "_id";
+    private static final String C_RUA_TB_RUA = "rua";
+    //Fim
+
+    //Tabela Bairro
+    private static final String TABELA_BAIRRO = "tb_bairro";
+
+    private static final String C_ID_TB_BAIRRO = "_id";
+    private static final String C_BAIRRO_TB_BAIRRO = "bairro";
+    //Fim
+
 
     public BDSqliteHelper(Context context){
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -42,9 +58,9 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE " + TABELA_PESSOA + "("
+        String CREATE_TABLE_PESSOAS = "CREATE TABLE " + TABELA_PESSOA + "("
                 + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_IDRESPONSAVEL + " INT,"
+                + C_IDRESPONSAVEL + " INT UNIQUE,"
                 + C_NOME + " TEXT,"
                 + C_ENDERECO + " TEXT,"
                 + C_COMPLEMENTO + " TEXT,"
@@ -65,8 +81,24 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
                 + C_RESPONSAVELFAMILIAR + " TEXT,"
                 + C_FALECIDO + " TEXT,"
                 + C_ATIVOINATIVO + " TEXT)";
+        db.execSQL(CREATE_TABLE_PESSOAS);
+        //Fim tb_pessoas
 
-        db.execSQL(CREATE_TABLE);
+        //Início tb_logradouro
+        String CREATE_TABLE_RUA = "CREATE TABLE " + TABELA_RUA + "("
+                + C_ID_TB_RUA + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + C_RUA_TB_RUA + " TEXT UNIQUE)";
+        db.execSQL(CREATE_TABLE_RUA);
+        //Fim tabela Rua
+
+        //Início tabela Bairro
+        String CREATE_TABLE_BAIRRO = "CREATE TABLE " + TABELA_BAIRRO + "("
+                + C_ID_TB_BAIRRO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + C_BAIRRO_TB_BAIRRO + " TEXT UNIQUE)";
+        db.execSQL(CREATE_TABLE_BAIRRO);
+        //Fim
+
+
     }
 
     @Override
@@ -75,6 +107,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     }
 
     //CRUD
+    //Adicionar Prssoa
     void addPessoa(Pessoa pessoa){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -102,9 +135,34 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         values.put(C_FALECIDO, pessoa.getFalecido());
         values.put(C_ATIVOINATIVO, pessoa.getAtivoInativo());
 
-
         db.insert(TABELA_PESSOA, null, values);
         db.close();
     }
+    //Fim
+
+    //Adicionar Rua
+    void addRua(Rua rua){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(C_RUA_TB_RUA, rua.getRua());
+
+        db.insert(TABELA_RUA,null,values);
+        db.close();
+    }
+    //Fim
+
+    //Adionar Bairro
+    void addBairro(Bairro bairro){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(C_BAIRRO_TB_BAIRRO, bairro.getBairro());
+
+        db.insert(TABELA_BAIRRO,null,values);
+        db.close();
+    }
+
+    //Fim
 
 }
