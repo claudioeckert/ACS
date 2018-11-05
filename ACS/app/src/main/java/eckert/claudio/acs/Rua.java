@@ -9,6 +9,10 @@ public class Rua {
         this.rua = rua;
     }
 
+    public Rua(int id, String nomeRua) {
+
+    }
+
 
     public String getRua() {
         return rua;

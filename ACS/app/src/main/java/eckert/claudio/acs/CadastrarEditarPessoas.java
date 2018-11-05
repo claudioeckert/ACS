@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,8 +20,10 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class CadastrarEditarPessoas extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class CadastrarEditarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus, edtResponsavelFamiliar;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
@@ -33,7 +34,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity implements Adapter
     BDSqliteHelper db = new BDSqliteHelper(this);
     SQLiteDatabase dbSql;
     Cursor cursor;
-    SimpleCursorAdapter ad;
+    SimpleCursorAdapter adSC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,10 +116,6 @@ public class CadastrarEditarPessoas extends AppCompatActivity implements Adapter
         //Fim
         //Fim da mascara
 
-        //Carregar dados para spinner Rua
-        buscarDadosRua();
-        criarSpinnerRua();
-
 
         //---Teste do CRUD--
 
@@ -142,50 +139,46 @@ public class CadastrarEditarPessoas extends AppCompatActivity implements Adapter
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erro ao salvar dados: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        //Carregar dados para spinner Rua
+        getRuas();
+
+       // criarSpinnerRua();
         //Fim CRUD
 
     }//----------------------Fecha o onCreate-----------------------------------------------------
 
+    //Fim
+    //private String buscarDadosRua(){
+       // try{
+    public ArrayList<Rua> getRuas() {
+        ArrayList<Rua> ruas = new ArrayList<Rua>();
+        dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
+        cursor = dbSql.rawQuery("SELECT _id, rua FROM tb_rua", null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String nomeRua = cursor.getString(1);
+                Rua rua = new Rua(id, nomeRua);
+                ruas.add(rua);
+            } while (cursor.moveToNext());
+        }
+        return ruas;
+        // Toast.makeText(getApplicationContext(), "OK buscou os dados ", Toast.LENGTH_SHORT).show();
+        // }catch (Exception e){
+        //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+        ArrayAdapter adapter = new ArrayAdapter (this, R.layout.support_simple_spinner_dropdown_item, getRuas());
+
+
+   // }
     //Buscar dados para popular Spiner Rua
-    private void buscarDadosRua(){
-        try{
-            dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE,null);
-            cursor = dbSql.rawQuery("SELECT _id, rua FROM tb_rua", null, null);
-          }catch (Exception e){
-            Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
 
-    }
-    //Fim
     //Popular Spinner
-    private void criarSpinnerRua(){
 
-        try {
-
-            if (cursor != null) {
-                cursor.moveToFirst();
-            }
-            //pega o spinner que conterá os dados
-            //spRua = findViewById(R.id.spRua);//Já está citado no início
-
-            String[] from = {"rua"};//campos da tabela
-
-            int[] to = {R.id.spRua}; //campos da lista spinner
-            ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.activity_cadastrar_editar_pessoas, cursor, from, to,0);
-            spRua.setAdapter(ad);
-            // db.close();
-        }catch (Exception e){
-            //db.close();
-            Toast.makeText(getApplicationContext(), "Erro ao popular Spinner: " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
     //Fim
 
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }
 
     //Botão teste para abrir a tela Geral
 

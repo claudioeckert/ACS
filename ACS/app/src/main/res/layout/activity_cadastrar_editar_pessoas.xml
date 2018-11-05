@@ -379,6 +379,7 @@
                     android:id="@+id/spResponsavelFamiliar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="@+id/cbFalecido"
                     app:layout_constraintStart_toStartOf="@+id/cbResponsavel"
                     app:layout_constraintTop_toBottomOf="@+id/txtResponsavelFamiliar" />
