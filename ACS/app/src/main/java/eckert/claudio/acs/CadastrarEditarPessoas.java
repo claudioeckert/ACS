@@ -139,12 +139,20 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erro ao salvar dados: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
+        //Populando spinner Ruas
         ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getRuas());
         spRua.setAdapter(adapter);
+        //Fim
 
+        //Populando spinner Bairros
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getBairros());
+        spBairro.setAdapter(adapter2);
+        //Fim
 
-        //buscarBairro();
+        //Populando spinner ResponsavelFamiliar
+        ArrayAdapter<String> adapter3 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getResponsaveis());
+        spResponsavelFamiliar.setAdapter(adapter3);
+        //Fim
 
         //Fim CRUD
 
@@ -152,6 +160,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
             //Turma turmaSelecionada = ((Turma)spinner.getSelectedItem());
 
     }//----------------------Fecha o onCreate-----------------------------------------------------
+        //Spinner Ruas
         public ArrayList<String> getRuas() {
         ArrayList<String> ruas = new ArrayList<String>();
         dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
@@ -169,12 +178,49 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
         return ruas;
         //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
     }
-
+    //Fim
 
     //Spínner Bairros spBairro
-    public void buscarBairro(){
-
+    public ArrayList<String> getBairros() {
+        ArrayList<String> bairros = new ArrayList<String>();
+        dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
+        cursor = dbSql.rawQuery("SELECT bairro FROM tb_bairro", null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                //Integer id = cursor.getInt(0);
+                String nomeBairro = cursor.getString(0);
+                String bairro = new String(nomeBairro);
+                bairros.add(bairro);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return bairros;
+        //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
     }
+    //Fim
+
+    //Spínner Bairros spBairro
+    public ArrayList<String> getResponsaveis() {
+        ArrayList<String> responsaveis = new ArrayList<String>();
+        dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
+        cursor = dbSql.rawQuery("SELECT nome FROM tb_pessoas WHERE responsavelFamiliar = '1'", null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                //Integer id = cursor.getInt(0);
+                String nomeresponsavel = cursor.getString(0);
+                String responsavel = new String(nomeresponsavel);
+                responsaveis.add(responsavel);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return responsaveis;
+        //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+    //Fim
+
+
 
 
     //Botão teste para abrir a tela Geral
