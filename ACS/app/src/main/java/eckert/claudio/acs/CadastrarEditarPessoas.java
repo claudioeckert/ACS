@@ -20,7 +20,7 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public class CadastrarEditarPessoas extends AppCompatActivity {
@@ -140,44 +140,41 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Erro ao salvar dados: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        //Carregar dados para spinner Rua
-        getRuas();
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getRuas());
+        spRua.setAdapter(adapter);
 
-       // criarSpinnerRua();
+
+        //buscarBairro();
+
         //Fim CRUD
 
-    }//----------------------Fecha o onCreate-----------------------------------------------------
+        //Pode obter a turma selecionada no Spinner desta forma:
+            //Turma turmaSelecionada = ((Turma)spinner.getSelectedItem());
 
-    //Fim
-    //private String buscarDadosRua(){
-       // try{
-    public ArrayList<Rua> getRuas() {
-        ArrayList<Rua> ruas = new ArrayList<Rua>();
+    }//----------------------Fecha o onCreate-----------------------------------------------------
+        public ArrayList<String> getRuas() {
+        ArrayList<String> ruas = new ArrayList<String>();
         dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
-        cursor = dbSql.rawQuery("SELECT _id, rua FROM tb_rua", null, null);
+        cursor = dbSql.rawQuery("SELECT rua FROM tb_rua", null, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(0);
-                String nomeRua = cursor.getString(1);
-                Rua rua = new Rua(id, nomeRua);
+                //Integer id = cursor.getInt(0);
+                String nomeRua = cursor.getString(0);
+                String rua = new String(nomeRua);
                 ruas.add(rua);
             } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return ruas;
-        // Toast.makeText(getApplicationContext(), "OK buscou os dados ", Toast.LENGTH_SHORT).show();
-        // }catch (Exception e){
         //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
-        ArrayAdapter adapter = new ArrayAdapter (this, R.layout.support_simple_spinner_dropdown_item, getRuas());
 
+    //Spínner Bairros spBairro
+    public void buscarBairro(){
 
-   // }
-    //Buscar dados para popular Spiner Rua
-
-    //Popular Spinner
-
-    //Fim
+    }
 
 
     //Botão teste para abrir a tela Geral

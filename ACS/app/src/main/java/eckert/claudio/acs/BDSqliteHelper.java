@@ -87,14 +87,14 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         //Início tb_logradouro
         String CREATE_TABLE_RUA = "CREATE TABLE " + TABELA_RUA + "("
                 + C_ID_TB_RUA + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_RUA_TB_RUA + " TEXT UNIQUE)";
+                + C_RUA_TB_RUA + " TEXT)";
         db.execSQL(CREATE_TABLE_RUA);
         //Fim tabela Rua
 
         //Início tabela Bairro
         String CREATE_TABLE_BAIRRO = "CREATE TABLE " + TABELA_BAIRRO + "("
                 + C_ID_TB_BAIRRO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_BAIRRO_TB_BAIRRO + " TEXT UNIQUE)";
+                + C_BAIRRO_TB_BAIRRO + " TEXT)";
         db.execSQL(CREATE_TABLE_BAIRRO);
         //Fim
 
