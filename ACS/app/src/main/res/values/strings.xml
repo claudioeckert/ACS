@@ -28,7 +28,7 @@
     <string name="lbl_CadastrarPessoas">Cadastrar Pessoas</string>
     <string name="lbl_Login">Login</string>
     <string name="lbl_Senha">Senha</string>
-    <string name="btn_Entrar">Entrar</string>
+    <string name="btn_Logar">Logar</string>
     <string name="lbl_Complemento">Complemento</string>
     <string name="lbl_Bairro">Bairro</string>
     <string name="cb_Responsavel">Responsável Familiar</string>
@@ -39,4 +39,7 @@
     <string name="btn_Cadastrar">Cadastrar</string>
     <string name="lbl_NumeroFamiliaDigitado">Número da família</string>
     <string name="lbl_Geral">Geral</string>
+    <string name="digite_sua_matricula">Digite sua matrícula</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="lbl_NaoTemCadastro">Não tem cadastro? Cadastre-se</string>
 </resources>
