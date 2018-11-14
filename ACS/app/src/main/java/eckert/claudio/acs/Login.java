@@ -14,8 +14,8 @@ public class Login extends Activity {
 
     }
 
-    public void abrirActivityCadastrarEditarPessoas (View v){
-        startActivity(new Intent(getBaseContext(),CadastrarEditarPessoas.class));
+    public void abrirActivityGeral (View v){
+        startActivity(new Intent(getBaseContext(),Geral.class));
 
     }
 

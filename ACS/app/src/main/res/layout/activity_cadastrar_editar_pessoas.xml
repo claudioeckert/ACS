@@ -7,6 +7,37 @@
     android:orientation="vertical"
     tools:context=".CadastrarEditarPessoas">
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#064882">
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            style="@android:style/Widget.Holo.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="abrirActivityGeral"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
+
+        <TextView
+            android:id="@+id/textCadastrarPessoa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/lbl_CadastrarPessoas"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -471,28 +502,16 @@
                     app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
                     app:layout_constraintTop_toTopOf="@+id/btnExcluir" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="179dp"
-                    android:layout_height="56dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:onClick="abrirActivityGeral"
-                    android:text="Teste Abrir Geral"
-                    app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
-                    app:layout_constraintStart_toStartOf="@+id/btnExcluir"
-                    app:layout_constraintTop_toBottomOf="@+id/btnExcluir" />
-
                 <TextView
                     android:id="@+id/txtEspaco"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
                     app:layout_constraintStart_toStartOf="@+id/btnExcluir"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+                    app:layout_constraintTop_toBottomOf="@+id/btnNovoRegistro" />
 
                 <TextView
                     android:id="@+id/txtTelefoneCelular2"

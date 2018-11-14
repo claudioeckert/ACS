@@ -25,7 +25,7 @@
     <string name="btn_Excluir">Excluir</string>
     <string name="btn_NovoRegistro">Adicionar</string>
     <string name="title_activity_telefones">Telefones</string>
-    <string name="lbl_CadastrarAlterarExcluirTelefone">Cadastrar/Alterar/Excluir telefones</string>
+    <string name="lbl_CadastrarPessoas">Cadastrar Pessoas</string>
     <string name="lbl_Login">Login</string>
     <string name="lbl_Senha">Senha</string>
     <string name="btn_Entrar">Entrar</string>

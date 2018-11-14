@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@android:color/background_light"
     tools:context=".Login">
 
     <ImageView
@@ -24,7 +24,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/lbl_Login"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -49,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/lbl_Senha"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edtLogin"
         app:layout_constraintStart_toStartOf="@+id/edtLogin"
         app:layout_constraintTop_toBottomOf="@+id/edtLogin" />
@@ -73,7 +75,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="1dp"
         android:layout_marginTop="24dp"
-        android:onClick="abrirActivityCadastrarEditarPessoas"
+        android:onClick="abrirActivityGeral"
         android:text="@string/btn_Entrar"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="@+id/edtSenha"

@@ -220,15 +220,10 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
     }
     //Fim
 
-
-
-
-    //Botão teste para abrir a tela Geral
-
-    public void abrirActivityGeral(View v2) {
-        startActivity(new Intent(getBaseContext(), Geral.class));
-
+    //Abrir activity Geral
+    public void abrirActivityGeral (View v){
+        startActivity(new Intent(getBaseContext(),Geral.class));
     }
+    //Fim
 
-//Fim do botão
 }

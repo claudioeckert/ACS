@@ -1,6 +1,7 @@
 package eckert.claudio.acs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,6 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geral);
-
-       // ListView listaGeral = findViewById(R.id.lvResponsavelFamiliar);
-
 
         // Buscar dados
         buscarDados();
@@ -73,4 +71,11 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
+
+    //Abrir activity Cadastrar Pessoa
+    public void abrirActivityCadastrarPessoa (View v){
+        startActivity(new Intent(getBaseContext(),CadastrarEditarPessoas.class));
+    }
+    //Fim
+
 }

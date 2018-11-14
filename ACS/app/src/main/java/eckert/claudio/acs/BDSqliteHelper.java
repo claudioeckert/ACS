@@ -60,7 +60,7 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_PESSOAS = "CREATE TABLE " + TABELA_PESSOA + "("
                 + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_IDRESPONSAVEL + " INT UNIQUE,"
+                + C_IDRESPONSAVEL + " INT,"
                 + C_NOME + " TEXT,"
                 + C_ENDERECO + " TEXT,"
                 + C_COMPLEMENTO + " TEXT,"
