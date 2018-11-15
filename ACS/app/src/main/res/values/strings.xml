@@ -42,4 +42,6 @@
     <string name="digite_sua_matricula">Digite sua matrícula</string>
     <string name="digite_sua_senha">Digite sua senha</string>
     <string name="lbl_NaoTemCadastro">Não tem cadastro? Cadastre-se</string>
+    <string name="digite_seu_nome">Gigite seu nome</string>
+    <string name="digite_confirme_sua_senha">Confirme sua senha</string>
 </resources>
