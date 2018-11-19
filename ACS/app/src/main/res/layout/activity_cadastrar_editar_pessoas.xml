@@ -10,15 +10,16 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="#064882">
+        android:background="@color/colorPrimary">
 
         <ImageButton
             android:id="@+id/imageButton3"
             style="@android:style/Widget.Holo.Light.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark"
             android:onClick="abrirActivityGeral"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -115,8 +116,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimary"
                     android:text="@string/btn_Cadastrar"
                     android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+                    android:textColor="@android:color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/edtNome"
                     app:layout_constraintTop_toTopOf="@+id/txtEndereco" />
@@ -164,8 +167,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimary"
                     android:text="@string/btn_Cadastrar"
                     android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+                    android:textColor="@android:color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/edtNumeroEndereco"
                     app:layout_constraintTop_toTopOf="@+id/txtBairro" />
@@ -474,9 +479,9 @@
                     android:id="@+id/btnSalvar"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:background="@color/colorPrimary"
                     android:text="@string/btn_Salvar"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
                     app:layout_constraintEnd_toEndOf="@+id/divider6"
                     app:layout_constraintTop_toTopOf="@+id/btnNovoRegistro" />
 
