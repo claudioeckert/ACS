@@ -51,6 +51,14 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     private static final String C_BAIRRO_TB_BAIRRO = "bairro";
     //Fim
 
+    //Tabela Usuario
+    private static final String TABELA_USUARIO = "tb_usuario";
+
+    private static final String C_ID_TB_USUARIO = "_id";
+    private static final String C_NOME_TB_USUARIO = "nome";
+    private static final String C_USUARIO_TB_USUARIO = "usuario";
+    private static final String C_SENHA_TB_USUARIO = "senha";
+    //Fim
 
     public BDSqliteHelper(Context context){
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -87,15 +95,24 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         //Início tb_logradouro
         String CREATE_TABLE_RUA = "CREATE TABLE " + TABELA_RUA + "("
                 + C_ID_TB_RUA + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_RUA_TB_RUA + " TEXT)";
+                + C_RUA_TB_RUA + " TEXT UNIQUE NOT NULL)";
         db.execSQL(CREATE_TABLE_RUA);
         //Fim tabela Rua
 
         //Início tabela Bairro
         String CREATE_TABLE_BAIRRO = "CREATE TABLE " + TABELA_BAIRRO + "("
                 + C_ID_TB_BAIRRO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_BAIRRO_TB_BAIRRO + " TEXT)";
+                + C_BAIRRO_TB_BAIRRO + " TEXT UNIQUE NOT NULL)";
         db.execSQL(CREATE_TABLE_BAIRRO);
+        //Fim
+
+        // Início tabela usuário
+        String CREATE_TABLE_USUARIO = "CREATE TABLE " + TABELA_USUARIO + "("
+                + C_ID_TB_USUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + C_NOME_TB_USUARIO + " TEXT NOT NULL, "
+                + C_USUARIO_TB_USUARIO + " TEXT UNIQUE NOT NULL, "
+                + C_SENHA_TB_USUARIO + " TEXT NOT NULL)";
+        db.execSQL(CREATE_TABLE_USUARIO);
         //Fim
 
 
@@ -162,7 +179,6 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         db.insert(TABELA_BAIRRO,null,values);
         db.close();
     }
-
     //Fim
 
 }

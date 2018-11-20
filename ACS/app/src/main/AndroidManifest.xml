@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastrarEditarPessoas"
+            android:name=".CadastrarPessoas"
             android:label="@string/title_activity_cadastrar_editar_pessoas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

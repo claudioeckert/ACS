@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -74,7 +73,7 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
 
     //Abrir activity Cadastrar Pessoa
     public void abrirActivityCadastrarPessoa (View v){
-        startActivity(new Intent(getBaseContext(),CadastrarEditarPessoas.class));
+        startActivity(new Intent(getBaseContext(),CadastrarPessoas.class));
     }
     //Fim
 

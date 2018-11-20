@@ -20,10 +20,8 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-public class CadastrarEditarPessoas extends AppCompatActivity {
+public class CadastrarPessoas extends AppCompatActivity {
 
     EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus, edtResponsavelFamiliar;
     RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
@@ -39,7 +37,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_editar_pessoas);
+        setContentView(R.layout.activity_cadastrar_pessoas);
 
         edtNome = findViewById(R.id.edtNome);
         edtNumeroEndereco = findViewById(R.id.edtNumeroEndereco);
@@ -134,7 +132,7 @@ public class CadastrarEditarPessoas extends AppCompatActivity {
             db.addBairro(new Bairro("Odila"));
 
 
-            Toast.makeText(CadastrarEditarPessoas.this, "Salvo com sucesso", Toast.LENGTH_LONG).show();
+            Toast.makeText(CadastrarPessoas.this, "Salvo com sucesso", Toast.LENGTH_LONG).show();
 
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erro ao salvar dados: " + e.getMessage(), Toast.LENGTH_LONG).show();
