@@ -31,7 +31,7 @@
             android:id="@+id/edtLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/digite_sua_matricula"
+            android:hint="@string/digite_seu_Usuario"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 

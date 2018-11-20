@@ -39,10 +39,10 @@
     <string name="btn_Cadastrar">Cadastrar</string>
     <string name="lbl_NumeroFamiliaDigitado">Número da família</string>
     <string name="lbl_Geral">Geral</string>
-    <string name="digite_sua_matricula">Digite sua matrícula</string>
+    <string name="digite_seu_Usuario">Digite seu usuário</string>
     <string name="digite_sua_senha">Digite sua senha</string>
     <string name="lbl_NaoTemCadastro">Não tem cadastro? Cadastre-se</string>
-    <string name="digite_seu_nome">Gigite seu nome</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
     <string name="digite_confirme_sua_senha">Confirme sua senha</string>
     <string name="lbl_cadastrarUsuario">Cadastrar Usuário</string>
 </resources>

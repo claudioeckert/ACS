@@ -19,7 +19,7 @@ public class Login extends Activity {
     }
 
     public void abrirActivityCadastro (View v) {
-        startActivity(new Intent(getBaseContext(), CadastroActivity.class));
+        startActivity(new Intent(getBaseContext(), CadastrarUsuarioActivity.class));
     }
 
 }

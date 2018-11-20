@@ -181,4 +181,19 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     }
     //Fim
 
+
+    //Cadastrar Usuários
+    void addUsuario (Usuario usuario){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(C_NOME_TB_USUARIO, usuario.getNome());
+        values.put(C_USUARIO_TB_USUARIO, usuario.getUsuario());
+        values.put(C_SENHA_TB_USUARIO, usuario.getSenha());
+
+        db.insert(TABELA_USUARIO, null, values);
+        db.close();
+    }
+    //Fim
+
 }

@@ -24,7 +24,7 @@
             android:name=".Geral"
             android:label="Geral"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CadastroActivity"></activity>
+        <activity android:name=".CadastrarUsuarioActivity"></activity>
     </application>
 
 </manifest>

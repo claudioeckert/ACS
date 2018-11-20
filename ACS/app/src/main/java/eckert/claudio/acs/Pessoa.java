@@ -50,54 +50,6 @@ public class Pessoa {
     }
 
 
-//-------------------------
-   // public Pessoa(String claudio_eckert, String general_câmara, int i, String fundos, String odila, String s, String s1, String s2, String s3, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8){
-
-   // }
-    //Update
-  /*  public Pessoa(String claudio_eckert, String general_câmara, int i, String _nome, String _endereco) {
-        this.id = _id;
-        this.nome = _nome;
-        this.endereco = _endereco;
-        this.numero = _numero;
-        this.complemento = _complemento;
-        this.bairro = _bairro;
-        this.telefone = _telefone;
-        this.dataNascimento = _dataNascimento;
-        this.cartaoSus = _cartaoSus;
-        this.sexo = _sexo;
-        this.hArterial = _hArterial;
-        this.diabetico = _diabetico;
-        this.domiciliado = _domiciliado;
-        this.acamado = _acamado;
-        this.fumante = _fumante;
-        this.cancer = _cancer;
-        this.deficiente = _deficiente;
-        this.gestante = _gestante;
-    }
-    //Inserir
-    public Pessoa(String claudio_eckert, String general_câmara, int i9, String fundos, String odila, int _nome, String _endereco, int i8, int i, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int _numero) {
-        this.nome = _nome;
-        this.endereco = _endereco;
-        this.numero = _numero;
-        this.complemento = _complemento;
-        this.bairro = _bairro;
-        this.telefone = _telefone;
-        this.dataNascimento = _dataNascimento;
-        this.cartaoSus = _cartaoSus;
-        this.sexo = _sexo;
-        this.hArterial = _hArterial;
-        this.diabetico = _diabetico;
-        this.domiciliado = _domiciliado;
-        this.acamado = _acamado;
-        this.fumante = _fumante;
-        this.cancer = _cancer;
-        this.deficiente = _deficiente;
-        this.gestante = _gestante;
-   }*/
-    //-----------------------------------------
-
-
     public int get_id() {
         return _id;
     }

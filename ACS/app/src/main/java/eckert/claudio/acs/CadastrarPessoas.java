@@ -158,6 +158,8 @@ public class CadastrarPessoas extends AppCompatActivity {
             //Turma turmaSelecionada = ((Turma)spinner.getSelectedItem());
 
     }//----------------------Fecha o onCreate-----------------------------------------------------
+
+
         //Spinner Ruas
         public ArrayList<String> getRuas() {
         ArrayList<String> ruas = new ArrayList<String>();

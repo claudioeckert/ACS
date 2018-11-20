@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CadastroActivity">
+    tools:context=".CadastrarUsuarioActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -79,9 +79,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                     <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edtNomeCadastro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/digite_seu_nome" />
+                        android:hint="@string/digite_seu_nome"
+                        android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -96,11 +98,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/edtMatriculaCadastro"
+                        android:id="@+id/edtUsuarioCadastro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/digite_sua_matricula"
-                        android:inputType="number" />
+                        android:hint="@string/digite_seu_Usuario"
+                        android:inputType="none|number" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -119,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/digite_sua_senha"
-                        android:inputType="textPassword|textVisiblePassword" />
+                        android:inputType="textPassword" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -127,7 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    app:layout_constraintBottom_toTopOf="@+id/btnCadastrarCadastro"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
@@ -138,15 +140,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/digite_confirme_sua_senha"
-                        android:inputType="textPassword|textVisiblePassword" />
+                        android:inputType="textPassword" />
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnCadastrarCadastro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:background="@color/colorPrimary"
+                    android:onClick="validarCadastroUsuario"
                     android:text="@string/btn_Cadastrar"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -161,9 +164,9 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
-                    app:layout_constraintEnd_toEndOf="@+id/button"
-                    app:layout_constraintStart_toStartOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+                    app:layout_constraintEnd_toEndOf="@+id/btnCadastrarCadastro"
+                    app:layout_constraintStart_toStartOf="@+id/btnCadastrarCadastro"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCadastrarCadastro" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
