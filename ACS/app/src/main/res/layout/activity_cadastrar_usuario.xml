@@ -102,7 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/digite_seu_Usuario"
-                        android:inputType="none|number" />
+                        android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:background="@color/colorPrimary"
-                    android:onClick="validarCadastroUsuario"
+                    android:onClick="CadastrarUsuario"
                     android:text="@string/btn_Cadastrar"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"

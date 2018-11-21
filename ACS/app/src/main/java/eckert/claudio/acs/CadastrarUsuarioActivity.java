@@ -3,6 +3,8 @@ package eckert.claudio.acs;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,15 +33,16 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
         edtUsuarioCadastro = findViewById(R.id.edtUsuarioCadastro);
         edtSenhaCadastro = findViewById(R.id.edtSenhaCadastro);
         edtSenhaConfirmadaCadastro = findViewById(R.id.edtSenhaConfirmadaCadastro);
+
+        btnCadastrarCadastro = findViewById(R.id.btnCadastrarCadastro);
     }
 
-    //Cadastrar Usuário
-    public void cadastrarUsuario(){
-        //db.addUsuario(new Usuario());
-    }
-
-    //Validar Cadastro usuário
-    public void validarCadastroUsuario(View view){
+    //Cadastrar usuário
+    public void CadastrarUsuario(View view){
+        //Trocar cor do botão ao clicar
+        //btnCadastrarCadastro.setBackgroundResource(R.color.colorAccent);
+        //btnCadastrarCadastro.setTextColor(Color.GREEN);
+        //btnCadastrarCadastro.setBackgroundResource(R.color.colorPrimaryDark);
         //Recuperar textos dos campos
         String textoNome = edtNomeCadastro.getText().toString();
         String textoUsuario = edtUsuarioCadastro.getText().toString();
@@ -55,6 +58,10 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
                             try {
                                 db.addUsuario(new Usuario(textoNome, textoUsuario, textoSenha));
                                 Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                                edtNomeCadastro.setText("");
+                                edtUsuarioCadastro.setText("");
+                                edtSenhaCadastro.setText("");
+                                edtSenhaConfirmadaCadastro.setText("");
                             }catch (Exception e){
                                 Toast.makeText(getApplicationContext(), "Erro ao cadastrar usuário!", Toast.LENGTH_LONG).show();
                             }
