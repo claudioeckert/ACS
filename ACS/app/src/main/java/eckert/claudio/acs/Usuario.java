@@ -14,6 +14,14 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Usuario() {
+    }
+
+    public Usuario(String usuario, String senha) {
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
     public int get_id() {
         return _id;
     }

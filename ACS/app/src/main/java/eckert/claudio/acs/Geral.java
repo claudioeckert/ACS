@@ -69,6 +69,7 @@ public class Geral extends AppCompatActivity implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
     }
 
     //Abrir activity Cadastrar Pessoa

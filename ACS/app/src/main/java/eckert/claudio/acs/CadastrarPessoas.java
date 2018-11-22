@@ -23,11 +23,11 @@ import java.util.ArrayList;
 
 public class CadastrarPessoas extends AppCompatActivity {
 
-    EditText edtNome, edtNumeroEndereco, edtComplemento, edtTelefoneResidencial, edtTelefoneCelular1, edtTelefoneCelular2, edtTelefoneCelular3, edtDataNscimento, edtCartaoSus, edtResponsavelFamiliar;
-    RadioButton rdbMasculino, rdbFeminino, rdbOutros, rdbAtivo, rdbInativo;
-    Spinner spResponsavelFamiliar, spRua, spBairro;
-    CheckBox cbHipertencaoArterial, cbDiabetico, cbDomiciliado, cbAcamado, cbFumante, cbCancer, cbDeficiente, cbGestante, cbResponsavel, cbFalecido;
-    Button btnExcluir, btnNovoRegistro, btnSalvar, btnCadastrarEndereco, btnCadastrarBairro;
+    EditText edtNomeCadastrarPessoas, edtNumeroEnderecoCadastrarPessoas, edtComplementoCadastrarPessoas, edtTelefoneResidencialCadastrarPessoas, edtTelefoneCelular1CadastrarPessoas, edtTelefoneCelular2CadastrarPessoas, edtTelefoneCelular3CadastrarPessoas, edtDataNscimentoCadastrarPessoas, edtCartaoSusCadastrarPessoas, edtResponsavelFamiliarCadastrarPessoas;
+    RadioButton rdbMasculinoCadastrarPessoas, rdbFemininoCadastrarPessoas, rdbOutrosCadastrarPessoas, rdbAtivoCadastrarPessoas, rdbInativoCadastrarPessoas;
+    Spinner spResponsavelFamiliarCadastrarPessoas, spRuaCadastrarPessoas, spBairroCadastrarPessoas;
+    CheckBox cbHipertencaoArterialCadastrarPessoas, cbDiabeticoCadastrarPessoas, cbDomiciliadoCadastrarPessoas, cbAcamadoCadastrarPessoas, cbFumanteCadastrarPessoas, cbCancerCadastrarPessoas, cbDeficienteCadastrarPessoas, cbGestanteCadastrarPessoas, cbResponsavelCadastrarPessoas, cbFalecidoCadastrarPessoas;
+    Button btnExcluir, btnNovoRegistro, btnSalvarCadastrarPessoas, btnCadastrarEnderecoCadastrarPessoas, btnCadastrarBairroCadastrarPessoas;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
     SQLiteDatabase dbSql;
@@ -39,78 +39,78 @@ public class CadastrarPessoas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_pessoas);
 
-        edtNome = findViewById(R.id.edtNome);
-        edtNumeroEndereco = findViewById(R.id.edtNumeroEndereco);
-        edtComplemento = findViewById(R.id.edtComplemento);
-        edtResponsavelFamiliar = findViewById(R.id.edtResponsavelFamiliar);
+        edtNomeCadastrarPessoas = findViewById(R.id.edtNomeCadastrarPessoas);
+        edtNumeroEnderecoCadastrarPessoas = findViewById(R.id.edtNumeroEnderecoCadastrarPessoas);
+        edtComplementoCadastrarPessoas = findViewById(R.id.edtComplementoCadastrarPessoas);
+        edtResponsavelFamiliarCadastrarPessoas = findViewById(R.id.edtResponsavelFamiliar);
 
-        edtTelefoneResidencial = findViewById(R.id.edtTelefoneResidencial);
-        edtTelefoneCelular1 = findViewById(R.id.edtTelefoneCelular1);
-        edtTelefoneCelular2 = findViewById(R.id.edtTelefoneCelular2);
-        edtTelefoneCelular3 = findViewById(R.id.edtTelefoneCelular3);
-        edtDataNscimento = findViewById(R.id.edtDataNscimento);
-        edtCartaoSus = findViewById(R.id.edtCartaoSus);
+        edtTelefoneResidencialCadastrarPessoas = findViewById(R.id.edtTelefoneResidencialCadastrarPessoas);
+        edtTelefoneCelular1CadastrarPessoas = findViewById(R.id.edtTelefoneCelular1CadastrarPessoas);
+        edtTelefoneCelular2CadastrarPessoas = findViewById(R.id.edtTelefoneCelular2CadastrarPessoas);
+        edtTelefoneCelular3CadastrarPessoas = findViewById(R.id.edtTelefoneCelular3CadastrarPessoas);
+        edtDataNscimentoCadastrarPessoas = findViewById(R.id.edtDataNscimento);
+        edtCartaoSusCadastrarPessoas = findViewById(R.id.edtCartaoSusCadastrarPessoas);
 
-        rdbMasculino = findViewById(R.id.rdbMasculino);
-        rdbFeminino = findViewById(R.id.rdbFeminino);
-        rdbOutros = findViewById(R.id.rdbOutros);
-        rdbAtivo = findViewById(R.id.rdbAtivo);
-        rdbInativo = findViewById(R.id.rdbInativo);
+        rdbMasculinoCadastrarPessoas = findViewById(R.id.rdbMasculino);
+        rdbFemininoCadastrarPessoas = findViewById(R.id.rdbFeminino);
+        rdbOutrosCadastrarPessoas = findViewById(R.id.rdbOutros);
+        rdbAtivoCadastrarPessoas = findViewById(R.id.rdbAtivoCadastrarPessoas);
+        rdbInativoCadastrarPessoas = findViewById(R.id.rdbInativo);
 
-        cbHipertencaoArterial = findViewById(R.id.cbHipertencaoArterial);
-        cbDiabetico = findViewById(R.id.cbDiabetico);
-        cbDomiciliado = findViewById(R.id.cbDomiciliado);
-        cbAcamado = findViewById(R.id.cbAcamado);
-        cbFumante = findViewById(R.id.cbFumante);
-        cbCancer = findViewById(R.id.cbCancer);
-        cbDeficiente = findViewById(R.id.cbDeficiente);
-        cbGestante = findViewById(R.id.cbGestante);
-        cbResponsavel = findViewById(R.id.cbResponsavel);
-        cbFalecido = findViewById(R.id.cbFalecido);
+        cbHipertencaoArterialCadastrarPessoas = findViewById(R.id.cbHipertencaoArterialCadastrarPessoas);
+        cbDiabeticoCadastrarPessoas = findViewById(R.id.cbDiabeticoCadastrarPessoas);
+        cbDomiciliadoCadastrarPessoas = findViewById(R.id.cbDomiciliadoCadastrarPessoas);
+        cbAcamadoCadastrarPessoas = findViewById(R.id.cbAcamadoCadastrarPessoas);
+        cbFumanteCadastrarPessoas = findViewById(R.id.cbFumanteCadastrarPessoas);
+        cbCancerCadastrarPessoas = findViewById(R.id.cbCancerCadastrarPessoas);
+        cbDeficienteCadastrarPessoas = findViewById(R.id.cbDeficienteCadastrarPessoas);
+        cbGestanteCadastrarPessoas = findViewById(R.id.cbGestante);
+        cbResponsavelCadastrarPessoas = findViewById(R.id.cbResponsavelCadastrarPessoas);
+        cbFalecidoCadastrarPessoas = findViewById(R.id.cbFalecidoCadastrarPessoas);
 
-        spResponsavelFamiliar = findViewById(R.id.spResponsavelFamiliar);
-        spRua = findViewById(R.id.spRua);
-        spBairro = findViewById(R.id.spBairro);
+        spResponsavelFamiliarCadastrarPessoas = findViewById(R.id.spResponsavelFamiliarCadastrarPessoas);
+        spRuaCadastrarPessoas = findViewById(R.id.spRuaCadastrarPessoas);
+        spBairroCadastrarPessoas = findViewById(R.id.spBairroCadastrarPessoas);
 
         btnExcluir = findViewById(R.id.btnExcluir);
         btnNovoRegistro = findViewById(R.id.btnNovoRegistro);
-        btnSalvar = findViewById(R.id.btnSalvar);
-        btnCadastrarEndereco = findViewById(R.id.btnCadastrarEndereco);
-        btnCadastrarBairro = findViewById(R.id.btnCadastrarBairro);
+        btnSalvarCadastrarPessoas = findViewById(R.id.btnSalvarCadastrarPessoas);
+        btnCadastrarEnderecoCadastrarPessoas = findViewById(R.id.btnCadastrarEnderecoCadastrarPessoas);
+        btnCadastrarBairroCadastrarPessoas = findViewById(R.id.btnCadastrarBairroCadastrarPessoas);
 
         //Mascara de entrada para os campos
         //Telefones
         SimpleMaskFormatter telefoneR = new SimpleMaskFormatter("(NN)NNNN-NNNN");
-        MaskTextWatcher mtwTelefoneR = new MaskTextWatcher(edtTelefoneResidencial, telefoneR);
-        edtTelefoneResidencial.addTextChangedListener(mtwTelefoneR);
+        MaskTextWatcher mtwTelefoneR = new MaskTextWatcher(edtTelefoneResidencialCadastrarPessoas, telefoneR);
+        edtTelefoneResidencialCadastrarPessoas.addTextChangedListener(mtwTelefoneR);
 
         SimpleMaskFormatter telefoneC1 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
-        MaskTextWatcher mtwTelefoneC1 = new MaskTextWatcher(edtTelefoneCelular1, telefoneC1);
-        edtTelefoneCelular1.addTextChangedListener(mtwTelefoneC1);
+        MaskTextWatcher mtwTelefoneC1 = new MaskTextWatcher(edtTelefoneCelular1CadastrarPessoas, telefoneC1);
+        edtTelefoneCelular1CadastrarPessoas.addTextChangedListener(mtwTelefoneC1);
 
         SimpleMaskFormatter telefoneC2 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
-        MaskTextWatcher mtwTelefoneC2 = new MaskTextWatcher(edtTelefoneCelular2, telefoneC2);
-        edtTelefoneCelular2.addTextChangedListener(mtwTelefoneC2);
+        MaskTextWatcher mtwTelefoneC2 = new MaskTextWatcher(edtTelefoneCelular2CadastrarPessoas, telefoneC2);
+        edtTelefoneCelular2CadastrarPessoas.addTextChangedListener(mtwTelefoneC2);
 
         SimpleMaskFormatter telefoneC3 = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
-        MaskTextWatcher mtwTelefoneC3 = new MaskTextWatcher(edtTelefoneCelular3, telefoneC3);
-        edtTelefoneCelular3.addTextChangedListener(mtwTelefoneC3);
+        MaskTextWatcher mtwTelefoneC3 = new MaskTextWatcher(edtTelefoneCelular3CadastrarPessoas, telefoneC3);
+        edtTelefoneCelular3CadastrarPessoas.addTextChangedListener(mtwTelefoneC3);
         //Fim
 
         //Data de nascimento
         SimpleMaskFormatter dataNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher mtwDataNascimento = new MaskTextWatcher(edtDataNscimento, dataNascimento);
-        edtDataNscimento.addTextChangedListener(mtwDataNascimento);
+        MaskTextWatcher mtwDataNascimento = new MaskTextWatcher(edtDataNscimentoCadastrarPessoas, dataNascimento);
+        edtDataNscimentoCadastrarPessoas.addTextChangedListener(mtwDataNascimento);
         //Fim
         //Cartão Sus
         SimpleMaskFormatter cartaoSus = new SimpleMaskFormatter("NNN-NNNN-NNNN-NNNN");
-        MaskTextWatcher mtwCartaoSus = new MaskTextWatcher(edtCartaoSus, cartaoSus);
-        edtCartaoSus.addTextChangedListener(mtwCartaoSus);
+        MaskTextWatcher mtwCartaoSus = new MaskTextWatcher(edtCartaoSusCadastrarPessoas, cartaoSus);
+        edtCartaoSusCadastrarPessoas.addTextChangedListener(mtwCartaoSus);
         //Fim
         //Número da família
         SimpleMaskFormatter idResponsavelFamiliar = new SimpleMaskFormatter("NNN");
-        MaskTextWatcher mtwIdResponsavelFamiliar = new MaskTextWatcher(edtResponsavelFamiliar, idResponsavelFamiliar);
-        edtResponsavelFamiliar.addTextChangedListener(mtwIdResponsavelFamiliar);
+        MaskTextWatcher mtwIdResponsavelFamiliar = new MaskTextWatcher(edtResponsavelFamiliarCadastrarPessoas, idResponsavelFamiliar);
+        edtResponsavelFamiliarCadastrarPessoas.addTextChangedListener(mtwIdResponsavelFamiliar);
         //Fim
         //Fim da mascara
 
@@ -124,12 +124,12 @@ public class CadastrarPessoas extends AppCompatActivity {
             db.addPessoa(new Pessoa(65, "Maria da Silva", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
             db.addPessoa(new Pessoa(42, "Mateus José Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
 
-            db.addRua(new Rua("General Câmara"));
-            db.addRua(new Rua("Flores da Cunha"));
-            db.addRua(new Rua("João Thiesen"));
+            //db.addRua(new Rua("General Câmara"));
+            //db.addRua(new Rua("Flores da Cunha"));
+            //db.addRua(new Rua("João Thiesen"));
 
-            db.addBairro(new Bairro("Centro"));
-            db.addBairro(new Bairro("Odila"));
+           //db.addBairro(new Bairro("Centro"));
+            //db.addBairro(new Bairro("Odila"));
 
 
             Toast.makeText(CadastrarPessoas.this, "Salvo com sucesso", Toast.LENGTH_LONG).show();
@@ -137,22 +137,24 @@ public class CadastrarPessoas extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erro ao salvar dados: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        // Fim do CRUD-----------
+
+
         //Populando spinner Ruas
         ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getRuas());
-        spRua.setAdapter(adapter);
+        spRuaCadastrarPessoas.setAdapter(adapter);
         //Fim
 
         //Populando spinner Bairros
         ArrayAdapter<String> adapter2 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getBairros());
-        spBairro.setAdapter(adapter2);
+        spBairroCadastrarPessoas.setAdapter(adapter2);
         //Fim
 
         //Populando spinner ResponsavelFamiliar
         ArrayAdapter<String> adapter3 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,getResponsaveis());
-        spResponsavelFamiliar.setAdapter(adapter3);
+        spResponsavelFamiliarCadastrarPessoas.setAdapter(adapter3);
         //Fim
-
-        //Fim CRUD
 
         //Pode obter a turma selecionada no Spinner desta forma:
             //Turma turmaSelecionada = ((Turma)spinner.getSelectedItem());
@@ -172,6 +174,8 @@ public class CadastrarPessoas extends AppCompatActivity {
                 String rua = new String(nomeRua);
                 ruas.add(rua);
             } while (cursor.moveToNext());
+        }else{
+            inativarBotaoSalvar();
         }
         cursor.close();
         db.close();
@@ -192,6 +196,8 @@ public class CadastrarPessoas extends AppCompatActivity {
                 String bairro = new String(nomeBairro);
                 bairros.add(bairro);
             } while (cursor.moveToNext());
+        }else{
+            inativarBotaoSalvar();
         }
         cursor.close();
         db.close();
@@ -212,6 +218,8 @@ public class CadastrarPessoas extends AppCompatActivity {
                 String responsavel = new String(nomeresponsavel);
                 responsaveis.add(responsavel);
             } while (cursor.moveToNext());
+        }else{
+            inativarBotaoSalvar();
         }
         cursor.close();
         db.close();
@@ -226,4 +234,77 @@ public class CadastrarPessoas extends AppCompatActivity {
     }
     //Fim
 
+    public void inativarBotaoSalvar(){
+        btnSalvarCadastrarPessoas.setEnabled(false);
+    }
+
+    //Cadastrar pessoa
+    public void CadastrarPessoa(View view) {
+        //Trocar cor do botão ao clicar
+        //btnCadastrarCadastro.setBackgroundResource(R.color.colorAccent);
+        //btnCadastrarCadastro.setTextColor(Color.GREEN);
+        //btnCadastrarCadastro.setBackgroundResource(R.color.colorPrimaryDark);
+        //Recuperar textos dos campos
+        String textoNome = edtNomeCadastrarPessoas.getText().toString();
+        String textoRua = (String) spRuaCadastrarPessoas.getSelectedItem();
+        String textoNumero = edtNumeroEnderecoCadastrarPessoas.getText().toString();
+        String textoBairro = (String) spBairroCadastrarPessoas.getSelectedItem();
+        String textoFoneRes = edtTelefoneResidencialCadastrarPessoas.getText().toString();
+        String textoFoneCel1 = edtTelefoneCelular1CadastrarPessoas.getText().toString();
+        String textoFoneCel2 = edtTelefoneCelular2CadastrarPessoas.getText().toString();
+        String textoFoneCel3 = edtTelefoneCelular3CadastrarPessoas.getText().toString();
+        String textoDtNascimento = edtDataNscimentoCadastrarPessoas.getText().toString();
+        String textoCartaoSus = edtCartaoSusCadastrarPessoas.getText().toString();
+        boolean radioButtonSexoMasculino = rdbMasculinoCadastrarPessoas.isSelected();
+        boolean radioButotnSexoFeminino = rdbMasculinoCadastrarPessoas.isSelected();
+        boolean radioButtonSexoOutros = rdbMasculinoCadastrarPessoas.isSelected();
+        boolean checkBoxHArterial = cbHipertencaoArterialCadastrarPessoas.isChecked();
+        boolean checkBoxDiabetico = cbDiabeticoCadastrarPessoas.isChecked();
+        boolean checkBoxDomiciliado = cbDomiciliadoCadastrarPessoas.isChecked();
+        boolean checkBoxAcamado = cbAcamadoCadastrarPessoas.isChecked();
+        boolean checkBoxFumante = cbFumanteCadastrarPessoas.isChecked();
+        boolean checkBoxCancer = cbCancerCadastrarPessoas.isChecked();
+        boolean checkBoxDeficiente = cbDeficienteCadastrarPessoas.isChecked();
+        boolean checkBoxGestante = cbGestanteCadastrarPessoas.isChecked();
+        boolean checkBoxResponsavelFamiliar = cbResponsavelCadastrarPessoas.isChecked();
+        String textoNumeroDaFamilia = edtResponsavelFamiliarCadastrarPessoas.getText().toString();
+        String textoResponsavelFamiliar = (String) spResponsavelFamiliarCadastrarPessoas.getSelectedItem();
+        boolean radioButtonAtivo = rdbAtivoCadastrarPessoas.isSelected();
+        boolean radioButtonInativo = rdbInativoCadastrarPessoas.isSelected();
+        boolean checkBoxFalecido = cbFalecidoCadastrarPessoas.isChecked();
+
+        if (!textoNome.isEmpty()) {//verifica nome
+            if (!textoRua.isEmpty()) {//verifica rua / endereço
+                if (!textoNumero.isEmpty()) {//verifica numero
+                    if (!textoBairro.isEmpty()) {//verifica bairro
+                        if (textoDtNascimento.isEmpty()) {//verifica data de nascimento
+                            if (textoCartaoSus.isEmpty()) {//Verifica cartão sus
+
+
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Preencha o campo cartão sus!", Toast.LENGTH_SHORT).show();
+                                this.edtCartaoSusCadastrarPessoas.requestFocus();
+                            }
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Preencha o campo cdata de nascimento!", Toast.LENGTH_SHORT).show();
+                            this.spBairroCadastrarPessoas.requestFocus();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Selecione um item bairro!", Toast.LENGTH_SHORT).show();
+                        this.spBairroCadastrarPessoas.requestFocus();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Preencha o número!", Toast.LENGTH_SHORT).show();
+                    this.edtNumeroEnderecoCadastrarPessoas.requestFocus();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Selecione um item rua!", Toast.LENGTH_SHORT).show();
+                this.spBairroCadastrarPessoas.requestFocus();
+            }
+        }else{
+            Toast.makeText(getApplicationContext(), "Preencha o campo nome!", Toast.LENGTH_SHORT).show();
+            this.edtNomeCadastrarPessoas.requestFocus();
+        }
+        //Fim
+    }
 }
