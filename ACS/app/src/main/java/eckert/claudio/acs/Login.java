@@ -48,9 +48,9 @@ public class Login extends Activity {
             if (!textoSenha.isEmpty()){//verifica senha
                 try {
                     dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
-                    cursor = dbSql.rawQuery("SELECT usuario, senha FROM tb_usuario WHERE usuario = "+ textoUsuario +" AND senha = "+textoSenha,null, null);
+                    cursor = dbSql.rawQuery("SELECT usuario, senha FROM tb_usuario WHERE usuario = '"+textoUsuario+"' AND senha = '"+textoSenha+"'",null, null);
                         if (cursor != null && cursor.moveToFirst()) {
-                            do {
+                            //do {
                                 String usua = cursor.getString(0);
                                 String pass = cursor.getString(1);
                                 if (textoUsuario.equals(usua)&& textoSenha.equals(pass)){
@@ -58,12 +58,17 @@ public class Login extends Activity {
                                     edtUsuarioLogin.setText("");
                                     edtSenhaLogin.setText("");
                                 }else{
-                                    Toast.makeText(getApplicationContext(),"Usuário e/ou Senha incorretos!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),"Usuário e/ou Senha incorretos!!",Toast.LENGTH_LONG).show();
                                     edtUsuarioLogin.setText("");
                                     edtSenhaLogin.setText("");
                                     edtUsuarioLogin.requestFocus();
                                 }
-                            } while (cursor.moveToNext());
+                            //} while (cursor.moveToNext());
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Usuário e/ou Senha incorretos!",Toast.LENGTH_LONG).show();
+                            edtUsuarioLogin.setText("");
+                            edtSenhaLogin.setText("");
+                            edtUsuarioLogin.requestFocus();
                         }
                         cursor.close();
                         db.close();

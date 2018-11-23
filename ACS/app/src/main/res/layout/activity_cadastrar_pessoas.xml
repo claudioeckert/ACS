@@ -397,7 +397,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:checked="false"
+                    android:checked="true"
+                    android:onClick="respFamiliar"
                     android:text="@string/cb_Responsavel"
                     app:layout_constraintStart_toStartOf="@+id/rdgSexo"
                     app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -480,6 +481,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:background="@color/colorPrimary"
+                    android:onClick="CadastrarPessoa"
                     android:text="@string/btn_Salvar"
                     android:textColor="@android:color/white"
                     app:layout_constraintEnd_toEndOf="@+id/divider6"
@@ -564,7 +566,7 @@
                     app:layout_constraintTop_toTopOf="@+id/cbResponsavelCadastrarPessoas" />
 
                 <EditText
-                    android:id="@+id/edtResponsavelFamiliarCadastrarPessoas"
+                    android:id="@+id/edtNumeroResponsavelFamiliarCadastrarPessoas"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:ems="10"

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,11 +24,12 @@ import java.util.ArrayList;
 
 public class CadastrarPessoas extends AppCompatActivity {
 
-    EditText edtNomeCadastrarPessoas, edtNumeroEnderecoCadastrarPessoas, edtComplementoCadastrarPessoas, edtTelefoneResidencialCadastrarPessoas, edtTelefoneCelular1CadastrarPessoas, edtTelefoneCelular2CadastrarPessoas, edtTelefoneCelular3CadastrarPessoas, edtDataNscimentoCadastrarPessoas, edtCartaoSusCadastrarPessoas, edtResponsavelFamiliarCadastrarPessoas;
+    EditText edtNomeCadastrarPessoas, edtNumeroEnderecoCadastrarPessoas, edtComplementoCadastrarPessoas, edtTelefoneResidencialCadastrarPessoas, edtTelefoneCelular1CadastrarPessoas, edtTelefoneCelular2CadastrarPessoas, edtTelefoneCelular3CadastrarPessoas, edtDataNscimentoCadastrarPessoas, edtCartaoSusCadastrarPessoas, edtNumeroResponsavelFamiliarCadastrarPessoas;
     RadioButton rdbMasculinoCadastrarPessoas, rdbFemininoCadastrarPessoas, rdbOutrosCadastrarPessoas, rdbAtivoCadastrarPessoas, rdbInativoCadastrarPessoas;
     Spinner spResponsavelFamiliarCadastrarPessoas, spRuaCadastrarPessoas, spBairroCadastrarPessoas;
     CheckBox cbHipertencaoArterialCadastrarPessoas, cbDiabeticoCadastrarPessoas, cbDomiciliadoCadastrarPessoas, cbAcamadoCadastrarPessoas, cbFumanteCadastrarPessoas, cbCancerCadastrarPessoas, cbDeficienteCadastrarPessoas, cbGestanteCadastrarPessoas, cbResponsavelCadastrarPessoas, cbFalecidoCadastrarPessoas;
     Button btnExcluir, btnNovoRegistro, btnSalvarCadastrarPessoas, btnCadastrarEnderecoCadastrarPessoas, btnCadastrarBairroCadastrarPessoas;
+    RadioGroup rdgSexo;
 
     BDSqliteHelper db = new BDSqliteHelper(this);
     SQLiteDatabase dbSql;
@@ -42,20 +44,21 @@ public class CadastrarPessoas extends AppCompatActivity {
         edtNomeCadastrarPessoas = findViewById(R.id.edtNomeCadastrarPessoas);
         edtNumeroEnderecoCadastrarPessoas = findViewById(R.id.edtNumeroEnderecoCadastrarPessoas);
         edtComplementoCadastrarPessoas = findViewById(R.id.edtComplementoCadastrarPessoas);
-        edtResponsavelFamiliarCadastrarPessoas = findViewById(R.id.edtResponsavelFamiliar);
+        edtNumeroResponsavelFamiliarCadastrarPessoas = findViewById(R.id.edtNumeroResponsavelFamiliarCadastrarPessoas);
 
         edtTelefoneResidencialCadastrarPessoas = findViewById(R.id.edtTelefoneResidencialCadastrarPessoas);
         edtTelefoneCelular1CadastrarPessoas = findViewById(R.id.edtTelefoneCelular1CadastrarPessoas);
         edtTelefoneCelular2CadastrarPessoas = findViewById(R.id.edtTelefoneCelular2CadastrarPessoas);
         edtTelefoneCelular3CadastrarPessoas = findViewById(R.id.edtTelefoneCelular3CadastrarPessoas);
-        edtDataNscimentoCadastrarPessoas = findViewById(R.id.edtDataNscimento);
+        edtDataNscimentoCadastrarPessoas = findViewById(R.id.edtDataNscimentoCadastrarPessoas);
         edtCartaoSusCadastrarPessoas = findViewById(R.id.edtCartaoSusCadastrarPessoas);
 
-        rdbMasculinoCadastrarPessoas = findViewById(R.id.rdbMasculino);
-        rdbFemininoCadastrarPessoas = findViewById(R.id.rdbFeminino);
-        rdbOutrosCadastrarPessoas = findViewById(R.id.rdbOutros);
+        rdbMasculinoCadastrarPessoas = findViewById(R.id.rdbMasculinoCadastrarPessoas);
+        rdbFemininoCadastrarPessoas = findViewById(R.id.rdbFemininoCadastrarPessoas);
+        rdbOutrosCadastrarPessoas = findViewById(R.id.rdbOutrosCadastrarPessoas);
         rdbAtivoCadastrarPessoas = findViewById(R.id.rdbAtivoCadastrarPessoas);
-        rdbInativoCadastrarPessoas = findViewById(R.id.rdbInativo);
+        rdbInativoCadastrarPessoas = findViewById(R.id.rdbInativoCadastrarPessoas);
+        rdgSexo = findViewById(R.id.rdgSexo);
 
         cbHipertencaoArterialCadastrarPessoas = findViewById(R.id.cbHipertencaoArterialCadastrarPessoas);
         cbDiabeticoCadastrarPessoas = findViewById(R.id.cbDiabeticoCadastrarPessoas);
@@ -64,7 +67,7 @@ public class CadastrarPessoas extends AppCompatActivity {
         cbFumanteCadastrarPessoas = findViewById(R.id.cbFumanteCadastrarPessoas);
         cbCancerCadastrarPessoas = findViewById(R.id.cbCancerCadastrarPessoas);
         cbDeficienteCadastrarPessoas = findViewById(R.id.cbDeficienteCadastrarPessoas);
-        cbGestanteCadastrarPessoas = findViewById(R.id.cbGestante);
+        cbGestanteCadastrarPessoas = findViewById(R.id.cbGestanteCadastrarPessoas);
         cbResponsavelCadastrarPessoas = findViewById(R.id.cbResponsavelCadastrarPessoas);
         cbFalecidoCadastrarPessoas = findViewById(R.id.cbFalecidoCadastrarPessoas);
 
@@ -109,8 +112,8 @@ public class CadastrarPessoas extends AppCompatActivity {
         //Fim
         //Número da família
         SimpleMaskFormatter idResponsavelFamiliar = new SimpleMaskFormatter("NNN");
-        MaskTextWatcher mtwIdResponsavelFamiliar = new MaskTextWatcher(edtResponsavelFamiliarCadastrarPessoas, idResponsavelFamiliar);
-        edtResponsavelFamiliarCadastrarPessoas.addTextChangedListener(mtwIdResponsavelFamiliar);
+        MaskTextWatcher mtwIdResponsavelFamiliar = new MaskTextWatcher(edtNumeroResponsavelFamiliarCadastrarPessoas, idResponsavelFamiliar);
+        edtNumeroResponsavelFamiliarCadastrarPessoas.addTextChangedListener(mtwIdResponsavelFamiliar);
         //Fim
         //Fim da mascara
 
@@ -124,12 +127,12 @@ public class CadastrarPessoas extends AppCompatActivity {
             db.addPessoa(new Pessoa(65, "Maria da Silva", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
             db.addPessoa(new Pessoa(42, "Mateus José Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
 
-            //db.addRua(new Rua("General Câmara"));
-            //db.addRua(new Rua("Flores da Cunha"));
-            //db.addRua(new Rua("João Thiesen"));
+            db.addRua(new Rua("General Câmara"));
+            db.addRua(new Rua("Flores da Cunha"));
+            db.addRua(new Rua("João Thiesen"));
 
-           //db.addBairro(new Bairro("Centro"));
-            //db.addBairro(new Bairro("Odila"));
+            db.addBairro(new Bairro("Centro"));
+            db.addBairro(new Bairro("Odila"));
 
 
             Toast.makeText(CadastrarPessoas.this, "Salvo com sucesso", Toast.LENGTH_LONG).show();
@@ -219,7 +222,7 @@ public class CadastrarPessoas extends AppCompatActivity {
                 responsaveis.add(responsavel);
             } while (cursor.moveToNext());
         }else{
-            inativarBotaoSalvar();
+
         }
         cursor.close();
         db.close();
@@ -238,6 +241,14 @@ public class CadastrarPessoas extends AppCompatActivity {
         btnSalvarCadastrarPessoas.setEnabled(false);
     }
 
+
+    //Variaveis temporárias para cadastrar no banco
+    String tempNome,tempRua,tempComplemento,tempNumero,tempBairro,tempFoneRes,tempCel1,tempCel2,tempCel3,tempDtNas,tempCartSus,tempRBSexo
+            ,tempCbHArt,tempCbDiabet,tempCbDomici,tempCbAcam,tempCbFum,tempCbCanc,tempCbDefic,tempCbGest,tempCbRespFam,tempNumFam
+            ,tempRBAtivoInativo,tempCbFalec;
+    int tempRespFam;
+    //Fim
+
     //Cadastrar pessoa
     public void CadastrarPessoa(View view) {
         //Trocar cor do botão ao clicar
@@ -247,6 +258,7 @@ public class CadastrarPessoas extends AppCompatActivity {
         //Recuperar textos dos campos
         String textoNome = edtNomeCadastrarPessoas.getText().toString();
         String textoRua = (String) spRuaCadastrarPessoas.getSelectedItem();
+        String textoComplemento = edtComplementoCadastrarPessoas.getText().toString();
         String textoNumero = edtNumeroEnderecoCadastrarPessoas.getText().toString();
         String textoBairro = (String) spBairroCadastrarPessoas.getSelectedItem();
         String textoFoneRes = edtTelefoneResidencialCadastrarPessoas.getText().toString();
@@ -255,9 +267,10 @@ public class CadastrarPessoas extends AppCompatActivity {
         String textoFoneCel3 = edtTelefoneCelular3CadastrarPessoas.getText().toString();
         String textoDtNascimento = edtDataNscimentoCadastrarPessoas.getText().toString();
         String textoCartaoSus = edtCartaoSusCadastrarPessoas.getText().toString();
+        //boolean radioGroup = rdgSexo.isSelected();
         boolean radioButtonSexoMasculino = rdbMasculinoCadastrarPessoas.isSelected();
-        boolean radioButotnSexoFeminino = rdbMasculinoCadastrarPessoas.isSelected();
-        boolean radioButtonSexoOutros = rdbMasculinoCadastrarPessoas.isSelected();
+        boolean radioButotnSexoFeminino = rdbFemininoCadastrarPessoas.isSelected();
+        boolean radioButtonSexoOutros = rdbOutrosCadastrarPessoas.isSelected();
         boolean checkBoxHArterial = cbHipertencaoArterialCadastrarPessoas.isChecked();
         boolean checkBoxDiabetico = cbDiabeticoCadastrarPessoas.isChecked();
         boolean checkBoxDomiciliado = cbDomiciliadoCadastrarPessoas.isChecked();
@@ -267,44 +280,184 @@ public class CadastrarPessoas extends AppCompatActivity {
         boolean checkBoxDeficiente = cbDeficienteCadastrarPessoas.isChecked();
         boolean checkBoxGestante = cbGestanteCadastrarPessoas.isChecked();
         boolean checkBoxResponsavelFamiliar = cbResponsavelCadastrarPessoas.isChecked();
-        String textoNumeroDaFamilia = edtResponsavelFamiliarCadastrarPessoas.getText().toString();
+        String textoNumeroDaFamilia = edtNumeroResponsavelFamiliarCadastrarPessoas.getText().toString();
         String textoResponsavelFamiliar = (String) spResponsavelFamiliarCadastrarPessoas.getSelectedItem();
         boolean radioButtonAtivo = rdbAtivoCadastrarPessoas.isSelected();
         boolean radioButtonInativo = rdbInativoCadastrarPessoas.isSelected();
         boolean checkBoxFalecido = cbFalecidoCadastrarPessoas.isChecked();
 
+        boolean ok = false;
+
+
         if (!textoNome.isEmpty()) {//verifica nome
             if (!textoRua.isEmpty()) {//verifica rua / endereço
-                if (!textoNumero.isEmpty()) {//verifica numero
-                    if (!textoBairro.isEmpty()) {//verifica bairro
-                        if (textoDtNascimento.isEmpty()) {//verifica data de nascimento
-                            if (textoCartaoSus.isEmpty()) {//Verifica cartão sus
-
-
-                            }else{
-                                Toast.makeText(getApplicationContext(), "Preencha o campo cartão sus!", Toast.LENGTH_SHORT).show();
-                                this.edtCartaoSusCadastrarPessoas.requestFocus();
+                  if (!textoNumero.isEmpty()){//verifica numero
+                        if (!textoBairro.isEmpty()) {//verifica bairro
+                            if (!textoDtNascimento.isEmpty()) {//verifica data de nascimento
+                                if (!textoCartaoSus.isEmpty()) {//Verifica cartão sus
+                                    ok = true;
+                                    tempNome = textoNome;
+                                    tempRua = textoRua;
+                                    tempComplemento = textoComplemento;//não tem teste pois não é obrigatório
+                                    tempNumero = textoNumero;
+                                    tempBairro = textoBairro;
+                                    tempDtNas = textoDtNascimento;
+                                    tempCartSus = textoCartaoSus;
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "Preencha o campo cartão sus!", Toast.LENGTH_SHORT).show();
+                                    this.edtCartaoSusCadastrarPessoas.requestFocus();
+                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Preencha o campo cdata de nascimento!", Toast.LENGTH_SHORT).show();
+                                this.edtDataNscimentoCadastrarPessoas.requestFocus();
                             }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Preencha o campo cdata de nascimento!", Toast.LENGTH_SHORT).show();
-                            this.spBairroCadastrarPessoas.requestFocus();
+                            Toast.makeText(getApplicationContext(), "Selecione um item bairro ou cadastre!", Toast.LENGTH_SHORT).show();
+                            //this.spBairroCadastrarPessoas.requestFocus();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Selecione um item bairro!", Toast.LENGTH_SHORT).show();
-                        this.spBairroCadastrarPessoas.requestFocus();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Preencha o número!", Toast.LENGTH_SHORT).show();
-                    this.edtNumeroEnderecoCadastrarPessoas.requestFocus();
+                        Toast.makeText(getApplicationContext(), "Preencha o número!", Toast.LENGTH_SHORT).show();
+                        this.edtNumeroEnderecoCadastrarPessoas.requestFocus();
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "Selecione um item rua!", Toast.LENGTH_SHORT).show();
-                this.spBairroCadastrarPessoas.requestFocus();
+                Toast.makeText(getApplicationContext(), "Selecione um item rua ou cadastre!", Toast.LENGTH_SHORT).show();
+                //this.spRuaCadastrarPessoas.requestFocus();
             }
         }else{
             Toast.makeText(getApplicationContext(), "Preencha o campo nome!", Toast.LENGTH_SHORT).show();
             this.edtNomeCadastrarPessoas.requestFocus();
         }
-        //Fim
-    }
+        //Fim primeiros testes
+
+        //Teste radio button sexo
+        if (radioButtonSexoMasculino == true){
+            tempRBSexo = "m";
+        }else{
+            if (radioButotnSexoFeminino == true){
+                tempRBSexo = "f";
+            }else{
+                if (radioButtonSexoOutros == true){
+                    tempRBSexo = "o";
+                }else{
+                    Toast.makeText(getApplicationContext(),"Informe o SEXO!",Toast.LENGTH_LONG).show();
+                }
+            }
+        }//Fim
+
+        //Teste condicionalidades
+        //H Arterial
+        if (checkBoxHArterial == true){
+            tempCbHArt = "1";
+        }else{
+            tempCbHArt = "0";
+        }
+
+        //Diabético
+        if (checkBoxDiabetico == true){
+            tempCbDiabet = "1";
+        }else{
+            tempCbDiabet = "0";
+        }
+
+        //Domiciliado
+        if (checkBoxDomiciliado == true){
+            tempCbDomici = "1";
+        }else{
+            tempCbDomici = "0";
+        }
+
+        //Acamado
+        if (checkBoxAcamado == true){
+            tempCbAcam = "1";
+        }else{
+            tempCbAcam = "0";
+        }
+
+        //Fumante
+        if (checkBoxFumante == true){
+            tempCbFum = "1";
+        }else{
+            tempCbFum = "0";
+        }
+
+        //Câncer
+        if (checkBoxCancer == true){
+            tempCbCanc = "1";
+        }else{
+            tempCbCanc = "0";
+        }
+
+        //Deficiente
+        if (checkBoxDeficiente == true){
+            tempCbDefic = "1";
+        }else{
+            tempCbDefic = "0";
+        }
+
+        //Diabético
+        if (checkBoxGestante == true){
+            tempCbGest = "1";
+        }else{
+            tempCbGest = "0";
+        }
+        //Fim condicionalidades
+
+        //Teste responsável familiar checkbox
+        if (checkBoxResponsavelFamiliar == true){
+            tempCbRespFam = "1";
+        }else{
+            tempCbRespFam = "0";
+        }//fim
+
+        //Numero responsavel familiar
+        if (!textoNumeroDaFamilia.isEmpty()){
+            tempNumFam = textoNumeroDaFamilia;
+        }//Fim
+
+        //Responsável familiar, pega o id
+        if (!textoResponsavelFamiliar.isEmpty()){
+            tempRespFam = edtNumeroResponsavelFamiliarCadastrarPessoas.getId();
+        }//Fim
+
+        //RadioButton Ativo inativo
+        if (radioButtonAtivo == true){
+            tempRBAtivoInativo = "a";
+        }else{
+            tempRBAtivoInativo = "i";
+        }//Fim
+
+        //Falecido
+        if (checkBoxFalecido == true){
+            tempCbFalec = "1";
+        }else{
+            tempCbFalec = "0";
+        }//Fim
+
+
+
+
+
+    }//Fim do metodo cadastrar pessoa
+
+    //Metodo ativar/desativar numero da família e spinner responsável familiar
+    public void respFamiliar (View view){
+        if (cbResponsavelCadastrarPessoas.isChecked()){
+            edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(true);
+            spResponsavelFamiliarCadastrarPessoas.setEnabled(false);
+
+        }else{
+            edtNumeroResponsavelFamiliarCadastrarPessoas.setText("");
+            edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(false);
+            spResponsavelFamiliarCadastrarPessoas.setEnabled(true);
+        }
+    }//Fim
+
+
+
+
 }
+
+
+
+
+
