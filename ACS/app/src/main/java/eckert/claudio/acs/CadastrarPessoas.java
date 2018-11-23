@@ -121,11 +121,11 @@ public class CadastrarPessoas extends AppCompatActivity {
         //---Teste do CRUD--
 
         try {//Não está funcionando o try catch pois o campo idResponsável não pode ser repitido
-            db.addPessoa(new Pessoa(80, "Claudio Jorge Eckert Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982545772", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
-            db.addPessoa(new Pessoa(130, "Aline Beatris Braatz Eckert", "General Câmara", "55", "Fundos APTO 51", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
-            db.addPessoa(new Pessoa(25, "José da Silva Sauros Ramos Trento", "General Câmara", "55", "Fundos", "Odila", "991580666", "18121979", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
-            db.addPessoa(new Pessoa(65, "Maria da Silva", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
-            db.addPessoa(new Pessoa(42, "Mateus José Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+            //db.addPessoa(new Pessoa(80, "Claudio Jorge Eckert Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982545772", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+            //db.addPessoa(new Pessoa(130, "Aline Beatris Braatz Eckert", "General Câmara", "55", "Fundos APTO 51", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+            //db.addPessoa(new Pessoa(25, "José da Silva Sauros Ramos Trento", "General Câmara", "55", "Fundos", "Odila", "991580666", "18121979", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+            //db.addPessoa(new Pessoa(65, "Maria da Silva", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+            //db.addPessoa(new Pessoa(42, "Mateus José Junior", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
 
             db.addRua(new Rua("General Câmara"));
             db.addRua(new Rua("Flores da Cunha"));
@@ -161,6 +161,9 @@ public class CadastrarPessoas extends AppCompatActivity {
 
         //Pode obter a turma selecionada no Spinner desta forma:
             //Turma turmaSelecionada = ((Turma)spinner.getSelectedItem());
+
+
+        spResponsavelFamiliarCadastrarPessoas.setEnabled(false);
 
     }//----------------------Fecha o onCreate-----------------------------------------------------
 
@@ -244,9 +247,8 @@ public class CadastrarPessoas extends AppCompatActivity {
 
     //Variaveis temporárias para cadastrar no banco
     String tempNome,tempRua,tempComplemento,tempNumero,tempBairro,tempFoneRes,tempCel1,tempCel2,tempCel3,tempDtNas,tempCartSus,tempRBSexo
-            ,tempCbHArt,tempCbDiabet,tempCbDomici,tempCbAcam,tempCbFum,tempCbCanc,tempCbDefic,tempCbGest,tempCbRespFam,tempNumFam
+            ,tempCbHArt,tempCbDiabet,tempCbDomici,tempCbAcam,tempCbFum,tempCbCanc,tempCbDefic,tempCbGest,tempCbRespFam,tempNumFam,tempRespFam
             ,tempRBAtivoInativo,tempCbFalec;
-    int tempRespFam;
     //Fim
 
     //Cadastrar pessoa
@@ -303,12 +305,118 @@ public class CadastrarPessoas extends AppCompatActivity {
                                     tempBairro = textoBairro;
                                     tempDtNas = textoDtNascimento;
                                     tempCartSus = textoCartaoSus;
+
+
+                                    //Teste radio button sexo
+                                    if (radioButtonSexoMasculino == true){
+                                        tempRBSexo = "m";
+                                    }
+                                    if (radioButotnSexoFeminino == true){
+                                        tempRBSexo = "f";
+                                    }
+                                    if (radioButtonSexoOutros == true){
+                                        tempRBSexo = "o";
+                                    }//Fim
+
+                                    //Teste condicionalidades
+                                    //H Arterial
+                                    if (checkBoxHArterial == true){
+                                        tempCbHArt = "1";
+                                    }else{
+                                        tempCbHArt = "0";
+                                    }
+
+                                    //Diabético
+                                    if (checkBoxDiabetico == true){
+                                        tempCbDiabet = "1";
+                                    }else{
+                                        tempCbDiabet = "0";
+                                    }
+
+                                    //Domiciliado
+                                    if (checkBoxDomiciliado == true){
+                                        tempCbDomici = "1";
+                                    }else{
+                                        tempCbDomici = "0";
+                                    }
+
+                                    //Acamado
+                                    if (checkBoxAcamado == true){
+                                        tempCbAcam = "1";
+                                    }else{
+                                        tempCbAcam = "0";
+                                    }
+
+                                    //Fumante
+                                    if (checkBoxFumante == true){
+                                        tempCbFum = "1";
+                                    }else{
+                                        tempCbFum = "0";
+                                    }
+
+                                    //Câncer
+                                    if (checkBoxCancer == true){
+                                        tempCbCanc = "1";
+                                    }else{
+                                        tempCbCanc = "0";
+                                    }
+
+                                    //Deficiente
+                                    if (checkBoxDeficiente == true){
+                                        tempCbDefic = "1";
+                                    }else{
+                                        tempCbDefic = "0";
+                                    }
+
+                                    //Diabético
+                                    if (checkBoxGestante == true){
+                                        tempCbGest = "1";
+                                    }else{
+                                        tempCbGest = "0";
+                                    }
+                                    //Fim condicionalidades
+
+                                    //Teste responsável familiar checkbox
+                                    if (checkBoxResponsavelFamiliar == true){
+                                        tempCbRespFam = "1";
+                                    }else{
+                                        tempCbRespFam = "0";
+                                    }//fim
+
+                                    //Numero responsavel familiar
+                                    if (!textoNumeroDaFamilia.isEmpty()){
+                                        tempNumFam = textoNumeroDaFamilia;
+                                    }//Fim
+
+                                    //Responsável familiar, pega o id
+                                    if (!textoResponsavelFamiliar.isEmpty()){
+                                        tempRespFam = textoResponsavelFamiliar;
+                                    }//Fim
+
+                                    //RadioButton Ativo inativo
+                                    if (radioButtonAtivo == true){
+                                        tempRBAtivoInativo = "a";
+                                    }else{
+                                        tempRBAtivoInativo = "i";
+                                    }//Fim
+
+                                    //Falecido
+                                    if (checkBoxFalecido == true){
+                                        tempCbFalec = "1";
+                                    }else{
+                                        tempCbFalec = "0";
+                                    }//Fim
+
+                                    //Colocar aqui o add pessoa
+                                    db.addPessoa(new Pessoa(80, tempNome, tempRua, tempNumero, tempComplemento, tempBairro, tempFoneRes, tempDtNas, tempCartSus, tempRBSexo, tempCbHArt, tempCbDiabet, tempCbDomici, tempCbAcam, tempCbFum, tempCbCanc, tempCbDefic, tempCbGest, tempRespFam, tempCbFalec, tempRBAtivoInativo));
+
+
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Preencha o campo cartão sus!", Toast.LENGTH_SHORT).show();
                                     this.edtCartaoSusCadastrarPessoas.requestFocus();
                                 }
                             } else {
-                                Toast.makeText(getApplicationContext(), "Preencha o campo cdata de nascimento!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Preencha o campo data de nascimento!", Toast.LENGTH_SHORT).show();
                                 this.edtDataNscimentoCadastrarPessoas.requestFocus();
                             }
                         } else {
@@ -329,109 +437,6 @@ public class CadastrarPessoas extends AppCompatActivity {
         }
         //Fim primeiros testes
 
-        //Teste radio button sexo
-        if (radioButtonSexoMasculino == true){
-            tempRBSexo = "m";
-        }else{
-            if (radioButotnSexoFeminino == true){
-                tempRBSexo = "f";
-            }else{
-                if (radioButtonSexoOutros == true){
-                    tempRBSexo = "o";
-                }else{
-                    Toast.makeText(getApplicationContext(),"Informe o SEXO!",Toast.LENGTH_LONG).show();
-                }
-            }
-        }//Fim
-
-        //Teste condicionalidades
-        //H Arterial
-        if (checkBoxHArterial == true){
-            tempCbHArt = "1";
-        }else{
-            tempCbHArt = "0";
-        }
-
-        //Diabético
-        if (checkBoxDiabetico == true){
-            tempCbDiabet = "1";
-        }else{
-            tempCbDiabet = "0";
-        }
-
-        //Domiciliado
-        if (checkBoxDomiciliado == true){
-            tempCbDomici = "1";
-        }else{
-            tempCbDomici = "0";
-        }
-
-        //Acamado
-        if (checkBoxAcamado == true){
-            tempCbAcam = "1";
-        }else{
-            tempCbAcam = "0";
-        }
-
-        //Fumante
-        if (checkBoxFumante == true){
-            tempCbFum = "1";
-        }else{
-            tempCbFum = "0";
-        }
-
-        //Câncer
-        if (checkBoxCancer == true){
-            tempCbCanc = "1";
-        }else{
-            tempCbCanc = "0";
-        }
-
-        //Deficiente
-        if (checkBoxDeficiente == true){
-            tempCbDefic = "1";
-        }else{
-            tempCbDefic = "0";
-        }
-
-        //Diabético
-        if (checkBoxGestante == true){
-            tempCbGest = "1";
-        }else{
-            tempCbGest = "0";
-        }
-        //Fim condicionalidades
-
-        //Teste responsável familiar checkbox
-        if (checkBoxResponsavelFamiliar == true){
-            tempCbRespFam = "1";
-        }else{
-            tempCbRespFam = "0";
-        }//fim
-
-        //Numero responsavel familiar
-        if (!textoNumeroDaFamilia.isEmpty()){
-            tempNumFam = textoNumeroDaFamilia;
-        }//Fim
-
-        //Responsável familiar, pega o id
-        if (!textoResponsavelFamiliar.isEmpty()){
-            tempRespFam = edtNumeroResponsavelFamiliarCadastrarPessoas.getId();
-        }//Fim
-
-        //RadioButton Ativo inativo
-        if (radioButtonAtivo == true){
-            tempRBAtivoInativo = "a";
-        }else{
-            tempRBAtivoInativo = "i";
-        }//Fim
-
-        //Falecido
-        if (checkBoxFalecido == true){
-            tempCbFalec = "1";
-        }else{
-            tempCbFalec = "0";
-        }//Fim
 
 
 
