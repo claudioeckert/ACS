@@ -216,13 +216,13 @@ public class CadastrarPessoas extends AppCompatActivity {
     public ArrayList<String> getResponsaveis() {
         ArrayList<String> responsaveis = new ArrayList<String>();
         dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
-        cursor = dbSql.rawQuery("SELECT nome FROM tb_pessoas WHERE responsavelFamiliar = '1'", null, null);
+        cursor = dbSql.rawQuery("SELECT _id, nome FROM tb_pessoas WHERE responsavelFamiliar = '1' AND ativoInativo = '1' AND falecido = '0'" , null, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                //Integer id = cursor.getInt(0);
-                String nomeresponsavel = cursor.getString(0);
+                int id = Integer.parseInt(cursor.getString(0));
+                String nomeresponsavel = cursor.getString(1);
                 String responsavel = new String(nomeresponsavel);
-                responsaveis.add(responsavel);
+                responsaveis.add(id,responsavel);
             } while (cursor.moveToNext());
         }else{
 
@@ -247,8 +247,9 @@ public class CadastrarPessoas extends AppCompatActivity {
 
     //Variaveis temporárias para cadastrar no banco
     String tempNome,tempRua,tempComplemento,tempNumero,tempBairro,tempFoneRes,tempCel1,tempCel2,tempCel3,tempDtNas,tempCartSus,tempRBSexo
-            ,tempCbHArt,tempCbDiabet,tempCbDomici,tempCbAcam,tempCbFum,tempCbCanc,tempCbDefic,tempCbGest,tempCbRespFam,tempNumFam,tempRespFam
+            ,tempCbHArt,tempCbDiabet,tempCbDomici,tempCbAcam,tempCbFum,tempCbCanc,tempCbDefic,tempCbGest,tempCbRespFam,tempNumFam,tempNumeroNomeRespFam
             ,tempRBAtivoInativo,tempCbFalec;
+
     //Fim
 
     //Cadastrar pessoa
@@ -283,6 +284,7 @@ public class CadastrarPessoas extends AppCompatActivity {
         boolean checkBoxGestante = cbGestanteCadastrarPessoas.isChecked();
         boolean checkBoxResponsavelFamiliar = cbResponsavelCadastrarPessoas.isChecked();
         String textoNumeroDaFamilia = edtNumeroResponsavelFamiliarCadastrarPessoas.getText().toString();
+        //String textoNumeroDaFamilia = edtNumeroResponsavelFamiliarCadastrarPessoas.getText().toString();
         String textoResponsavelFamiliar = (String) spResponsavelFamiliarCadastrarPessoas.getSelectedItem();
         boolean radioButtonAtivo = rdbAtivoCadastrarPessoas.isSelected();
         boolean radioButtonInativo = rdbInativoCadastrarPessoas.isSelected();
@@ -297,119 +299,58 @@ public class CadastrarPessoas extends AppCompatActivity {
                         if (!textoBairro.isEmpty()) {//verifica bairro
                             if (!textoDtNascimento.isEmpty()) {//verifica data de nascimento
                                 if (!textoCartaoSus.isEmpty()) {//Verifica cartão sus
-                                    ok = true;
-                                    tempNome = textoNome;
-                                    tempRua = textoRua;
-                                    tempComplemento = textoComplemento;//não tem teste pois não é obrigatório
-                                    tempNumero = textoNumero;
-                                    tempBairro = textoBairro;
-                                    tempDtNas = textoDtNascimento;
-                                    tempCartSus = textoCartaoSus;
+                                    testarRBSexo();
+                                    testarCondicionalidades();
+                                    testarResponsavelFamiliar();
+                                    testarRBAtivoInativo();
+                                    testarFalecido();
+                                    if (tempCbRespFam.equals("1")){
+                                        if (!textoNumeroDaFamilia.isEmpty()){
+                                                try{
+                                                    tempNome = textoNome;
+                                                    tempRua = textoRua;
+                                                    tempComplemento = textoComplemento;//não tem teste pois não é obrigatório
+                                                    tempNumero = textoNumero;
+                                                    tempBairro = textoBairro;
+                                                    tempDtNas = textoDtNascimento;
+                                                    tempCartSus = textoCartaoSus;
+                                                    tempFoneRes = textoFoneRes;
+                                                    tempCel1 = textoFoneCel1;
+                                                    tempCel2 = textoFoneCel2;
+                                                    tempCel3 = textoFoneCel3;
+                                                    tempNumFam = textoNumeroDaFamilia;
 
+                                                    //db.addPessoa(new Pessoa(80, "Claudio Eckert", "General Câmara", "55", "Fundos", "Odila", "991685321", "17051985", "700704982545772", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0"));
+                                                    db.addPessoa(new Pessoa(tempNumFam, tempNome, tempRua, tempNumero, tempComplemento, tempBairro, tempFoneRes,tempCel1,tempCel2,tempCel3, tempDtNas, tempCartSus, tempRBSexo, tempCbHArt, tempCbDiabet, tempCbDomici, tempCbAcam, tempCbFum, tempCbCanc, tempCbDefic, tempCbGest, tempCbRespFam, tempCbFalec, tempRBAtivoInativo));
+                                                    Toast.makeText(getApplicationContext(), "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                                                } catch (Exception e) {
+                                                    Toast.makeText(getApplicationContext(), "Erro ao salvar dados!" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                    }else{
+                                        ///sdkchfshf
+                                        try {
+                                            tempNumeroNomeRespFam = (String) spResponsavelFamiliarCadastrarPessoas.getSelectedItem();
+                                            tempNumFam = tempNumeroNomeRespFam;
+                                            tempNome = textoNome;
+                                            tempRua = textoRua;
+                                            tempComplemento = textoComplemento;//não tem teste pois não é obrigatório
+                                            tempNumero = textoNumero;
+                                            tempBairro = textoBairro;
+                                            tempDtNas = textoDtNascimento;
+                                            tempCartSus = textoCartaoSus;
+                                            tempFoneRes = textoFoneRes;
+                                            tempCel1 = textoFoneCel1;
+                                            tempCel2 = textoFoneCel2;
+                                            tempCel3 = textoFoneCel3;
+                                            tempNumFam = textoNumeroDaFamilia;
+                                            db.addPessoa(new Pessoa(tempNumFam, tempNome, tempRua, tempNumero, tempComplemento, tempBairro, tempFoneRes, tempCel1, tempCel2, tempCel3, tempDtNas, tempCartSus, tempRBSexo, tempCbHArt, tempCbDiabet, tempCbDomici, tempCbAcam, tempCbFum, tempCbCanc, tempCbDefic, tempCbGest, tempCbRespFam, tempCbFalec, tempRBAtivoInativo));
+                                            Toast.makeText(getApplicationContext(), "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                                        }catch (Exception e){
+                                            Toast.makeText(getApplicationContext(), "Erro ao salvar dados!" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
 
-                                    //Teste radio button sexo
-                                    if (radioButtonSexoMasculino == true){
-                                        tempRBSexo = "m";
                                     }
-                                    if (radioButotnSexoFeminino == true){
-                                        tempRBSexo = "f";
-                                    }
-                                    if (radioButtonSexoOutros == true){
-                                        tempRBSexo = "o";
-                                    }//Fim
-
-                                    //Teste condicionalidades
-                                    //H Arterial
-                                    if (checkBoxHArterial == true){
-                                        tempCbHArt = "1";
-                                    }else{
-                                        tempCbHArt = "0";
-                                    }
-
-                                    //Diabético
-                                    if (checkBoxDiabetico == true){
-                                        tempCbDiabet = "1";
-                                    }else{
-                                        tempCbDiabet = "0";
-                                    }
-
-                                    //Domiciliado
-                                    if (checkBoxDomiciliado == true){
-                                        tempCbDomici = "1";
-                                    }else{
-                                        tempCbDomici = "0";
-                                    }
-
-                                    //Acamado
-                                    if (checkBoxAcamado == true){
-                                        tempCbAcam = "1";
-                                    }else{
-                                        tempCbAcam = "0";
-                                    }
-
-                                    //Fumante
-                                    if (checkBoxFumante == true){
-                                        tempCbFum = "1";
-                                    }else{
-                                        tempCbFum = "0";
-                                    }
-
-                                    //Câncer
-                                    if (checkBoxCancer == true){
-                                        tempCbCanc = "1";
-                                    }else{
-                                        tempCbCanc = "0";
-                                    }
-
-                                    //Deficiente
-                                    if (checkBoxDeficiente == true){
-                                        tempCbDefic = "1";
-                                    }else{
-                                        tempCbDefic = "0";
-                                    }
-
-                                    //Diabético
-                                    if (checkBoxGestante == true){
-                                        tempCbGest = "1";
-                                    }else{
-                                        tempCbGest = "0";
-                                    }
-                                    //Fim condicionalidades
-
-                                    //Teste responsável familiar checkbox
-                                    if (checkBoxResponsavelFamiliar == true){
-                                        tempCbRespFam = "1";
-                                    }else{
-                                        tempCbRespFam = "0";
-                                    }//fim
-
-                                    //Numero responsavel familiar
-                                    if (!textoNumeroDaFamilia.isEmpty()){
-                                        tempNumFam = textoNumeroDaFamilia;
-                                    }//Fim
-
-                                    //Responsável familiar, pega o id
-                                    if (!textoResponsavelFamiliar.isEmpty()){
-                                        tempRespFam = textoResponsavelFamiliar;
-                                    }//Fim
-
-                                    //RadioButton Ativo inativo
-                                    if (radioButtonAtivo == true){
-                                        tempRBAtivoInativo = "a";
-                                    }else{
-                                        tempRBAtivoInativo = "i";
-                                    }//Fim
-
-                                    //Falecido
-                                    if (checkBoxFalecido == true){
-                                        tempCbFalec = "1";
-                                    }else{
-                                        tempCbFalec = "0";
-                                    }//Fim
-
-                                    //Colocar aqui o add pessoa
-                                    db.addPessoa(new Pessoa(80, tempNome, tempRua, tempNumero, tempComplemento, tempBairro, tempFoneRes, tempDtNas, tempCartSus, tempRBSexo, tempCbHArt, tempCbDiabet, tempCbDomici, tempCbAcam, tempCbFum, tempCbCanc, tempCbDefic, tempCbGest, tempRespFam, tempCbFalec, tempRBAtivoInativo));
-
 
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Preencha o campo cartão sus!", Toast.LENGTH_SHORT).show();
@@ -435,32 +376,168 @@ public class CadastrarPessoas extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Preencha o campo nome!", Toast.LENGTH_SHORT).show();
             this.edtNomeCadastrarPessoas.requestFocus();
         }
-        //Fim primeiros testes
-
-
-
-
-
 
     }//Fim do metodo cadastrar pessoa
 
+
     //Metodo ativar/desativar numero da família e spinner responsável familiar
     public void respFamiliar (View view){
-        if (cbResponsavelCadastrarPessoas.isChecked()){
-            edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(true);
-            spResponsavelFamiliarCadastrarPessoas.setEnabled(false);
-
+        if (!getResponsaveis().isEmpty()) {
+            if (cbResponsavelCadastrarPessoas.isChecked()) {
+                edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(true);
+                edtNumeroResponsavelFamiliarCadastrarPessoas.requestFocus();
+                spResponsavelFamiliarCadastrarPessoas.setEnabled(false);
+            } else {
+                edtNumeroResponsavelFamiliarCadastrarPessoas.setText("");
+                edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(false);
+                spResponsavelFamiliarCadastrarPessoas.setEnabled(true);
+            }
         }else{
-            edtNumeroResponsavelFamiliarCadastrarPessoas.setText("");
-            edtNumeroResponsavelFamiliarCadastrarPessoas.setEnabled(false);
-            spResponsavelFamiliarCadastrarPessoas.setEnabled(true);
+            cbResponsavelCadastrarPessoas.setChecked(true);
         }
-    }//Fim
+    }
 
+    //Metodo testar condicionalidades
+    public void testarCondicionalidades (){
+         //H Arterial
+        if (cbHipertencaoArterialCadastrarPessoas.isChecked()){
+            tempCbHArt = "1";
+        }else{
+            tempCbHArt = "0";
+        }
 
+        //Diabético
+        if (cbDiabeticoCadastrarPessoas.isChecked()){
+            tempCbDiabet = "1";
+        }else{
+            tempCbDiabet = "0";
+        }
 
+        //Domiciliado
+        if (cbDomiciliadoCadastrarPessoas.isChecked()){
+            tempCbDomici = "1";
+        }else{
+            tempCbDomici = "0";
+        }
+
+        //Acamado
+        if (cbAcamadoCadastrarPessoas.isChecked()){
+            tempCbAcam = "1";
+        }else{
+            tempCbAcam = "0";
+        }
+
+        //Fumante
+        if (cbFumanteCadastrarPessoas.isChecked()){
+            tempCbFum = "1";
+        }else{
+            tempCbFum = "0";
+        }
+
+        //Câncer
+        if (cbCancerCadastrarPessoas.isChecked()){
+            tempCbCanc = "1";
+        }else{
+            tempCbCanc = "0";
+        }
+
+        //Deficiente
+        if (cbDeficienteCadastrarPessoas.isChecked()){
+            tempCbDefic = "1";
+        }else{
+            tempCbDefic = "0";
+        }
+
+        //Gestante
+        if (cbGestanteCadastrarPessoas.isChecked()){
+            tempCbGest = "1";
+        }else{
+            tempCbGest = "0";
+        }
+        //Fim condicionalidades
+
+    }
+
+    //Metodo testar radio button sexo
+    public void testarRBSexo(){
+        //Teste radio button sexo
+        if (!rdbMasculinoCadastrarPessoas.isChecked()){
+            if (!rdbFemininoCadastrarPessoas.isChecked()){
+                if (!rdbOutrosCadastrarPessoas.isChecked()){
+                }else{
+                    tempRBSexo = "o";
+                }
+            }else{
+                tempRBSexo = "f";
+            }
+        }else{
+            tempRBSexo = "m";
+        }
+    }
+
+    //Metodo teste responsável familiar checkbox
+    public void testarResponsavelFamiliar(){
+        if (cbResponsavelCadastrarPessoas.isChecked()){
+            tempCbRespFam = "1";
+        }else{
+            tempCbRespFam = "0";
+        }
+    }
+
+    //Metodo testar se esta ativo ou inativo
+    public void testarRBAtivoInativo(){
+        if (!rdbAtivoCadastrarPessoas.isChecked()){
+            if (!rdbInativoCadastrarPessoas.isChecked()){
+            }else{
+                tempRBAtivoInativo = "0";
+            }
+        }else{
+            tempRBAtivoInativo = "1";
+        }
+    }
+
+    //Metodo testar se esta falecido
+    public void testarFalecido(){
+        if (cbFalecidoCadastrarPessoas.isChecked()){
+            tempCbFalec = "1";
+        }else{
+            tempCbFalec = "0";
+        }
+    }
+
+    //Buscar numero da familia
+    public boolean buscarNumeroFamilia(){
+        String txtBusca = edtNumeroResponsavelFamiliarCadastrarPessoas.getText().toString();
+        try {
+            dbSql = openOrCreateDatabase("bd_acs", Context.MODE_PRIVATE, null);
+            cursor = dbSql.rawQuery("SELECT idResponsavel FROM tb_pessoas WHERE idResponsavel = '"+txtBusca,null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                //do {
+                String busca = cursor.getString(0);
+                if (txtBusca.equals(busca)){
+                    Toast.makeText(getApplicationContext(),"Encontrado!! não pode ser cadastrado",Toast.LENGTH_LONG).show();
+                    return true;
+                }else{
+                    Toast.makeText(getApplicationContext(),"Não encontrado pode cadastrar!!",Toast.LENGTH_LONG).show();
+                    return false;
+                }
+                //} while (cursor.moveToNext());
+            }else{
+                Toast.makeText(getApplicationContext(),"Não encontrado, pode cadastrar!",Toast.LENGTH_LONG).show();
+                return false;
+            }
+            //cursor.close();
+            //db.close();
+            //Toast.makeText(getApplicationContext(), "Erro ao buscar ruas " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            //Fim
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Erro ao buscar número da família responsável!" + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        return buscarNumeroFamilia();
+    }
 
 }
+
 
 
 

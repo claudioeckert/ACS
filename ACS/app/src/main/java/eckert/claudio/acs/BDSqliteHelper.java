@@ -20,7 +20,10 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     private static final String C_COMPLEMENTO = "complemento";
     private static final String C_BAIRRO = "bairro";
     private static final String C_NUMERO = "numero";
-    private static final String C_TELEFONE = "telefone";
+    private static final String C_TELRES = "telRes";
+    private static final String C_TELCEl1 = "telCel1";
+    private static final String C_TELCEl2 = "telCel2";
+    private static final String C_TELCEl3 = "telCel3";
     private static final String C_DATANASCIMENTO = "dataNascimento";
     private static final String C_CARTAOSUS = "cartaoSus";
     private static final String C_SEXO = "sexo";
@@ -68,13 +71,16 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_PESSOAS = "CREATE TABLE " + TABELA_PESSOA + "("
                 + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + C_IDRESPONSAVEL + " INT,"
+                + C_IDRESPONSAVEL + " TEXT,"
                 + C_NOME + " TEXT,"
                 + C_ENDERECO + " TEXT,"
                 + C_COMPLEMENTO + " TEXT,"
                 + C_BAIRRO + " TEXT,"
                 + C_NUMERO + " TEXT,"
-                + C_TELEFONE + " TEXT,"
+                + C_TELRES + " TEXT,"
+                + C_TELCEl1 + " TEXT,"
+                + C_TELCEl2 + " TEXT,"
+                + C_TELCEl3 + " TEXT,"
                 + C_DATANASCIMENTO + " TEXT,"
                 + C_CARTAOSUS + " TEXT,"
                 + C_SEXO + " TEXT,"
@@ -136,7 +142,10 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
         values.put(C_COMPLEMENTO, pessoa.getComplemento());
         values.put(C_BAIRRO, pessoa.getBairro());
         values.put(C_NUMERO, pessoa.getNumero());
-        values.put(C_TELEFONE, pessoa.getTelefone());
+        values.put(C_TELRES, pessoa.getTelRes());
+        values.put(C_TELCEl1, pessoa.getTeLCel1());
+        values.put(C_TELCEl2, pessoa.getTelCel2());
+        values.put(C_TELCEl3, pessoa.getTelCel3());
         values.put(C_DATANASCIMENTO, pessoa.getDataNascimento());
         values.put(C_CARTAOSUS, pessoa.getCartaoSus());
         values.put(C_SEXO, pessoa.getSexo());

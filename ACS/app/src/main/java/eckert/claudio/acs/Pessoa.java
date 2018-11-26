@@ -2,13 +2,16 @@ package eckert.claudio.acs;
 
 public class Pessoa {
     int _id;
-    int idResponsavel;
+    String idResponsavel;
     String nome;
     String endereco;
     String numero;
     String complemento;
     String bairro;
-    String telefone;
+    String telRes;
+    String teLCel1;
+    String telCel2;
+    String telCel3;
     String dataNascimento;
     String cartaoSus;
     String sexo;
@@ -25,14 +28,18 @@ public class Pessoa {
     String ativoInativo;
 //-------------------------
 
-    public Pessoa(/*int idid*/int idResponsavel, String nome, String endereco, String numero, String complemento, String bairro, String telefone, String dataNascimento, String cartaoSus, String sexo, String hArterial, String diabetico, String domiciliado, String acamado, String fumante, String cancer, String deficiente, String gestante, String responsavelFamiliar, String falecido, String ativoInativo) {        //this.idid = idid;
+
+    public Pessoa(String idResponsavel, String nome, String endereco, String numero, String complemento, String bairro, String telRes, String teLCel1, String telCel2, String telCel3, String dataNascimento, String cartaoSus, String sexo, String hArterial, String diabetico, String domiciliado, String acamado, String fumante, String cancer, String deficiente, String gestante, String responsavelFamiliar, String falecido, String ativoInativo) {
         this.idResponsavel = idResponsavel;
         this.nome = nome;
         this.endereco = endereco;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
-        this.telefone = telefone;
+        this.telRes = telRes;
+        this.teLCel1 = teLCel1;
+        this.telCel2 = telCel2;
+        this.telCel3 = telCel3;
         this.dataNascimento = dataNascimento;
         this.cartaoSus = cartaoSus;
         this.sexo = sexo;
@@ -49,7 +56,6 @@ public class Pessoa {
         this.ativoInativo = ativoInativo;
     }
 
-
     public int get_id() {
         return _id;
     }
@@ -58,11 +64,11 @@ public class Pessoa {
         this._id = _id;
     }
 
-    public int getIdResponsavel() {
+    public String getIdResponsavel() {
         return idResponsavel;
     }
 
-    public void setIdResponsavel(int idResponsavel) {
+    public void setIdResponsavel(String idResponsavel) {
         this.idResponsavel = idResponsavel;
     }
 
@@ -106,12 +112,36 @@ public class Pessoa {
         this.bairro = bairro;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelRes() {
+        return telRes;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelRes(String telRes) {
+        this.telRes = telRes;
+    }
+
+    public String getTeLCel1() {
+        return teLCel1;
+    }
+
+    public void setTeLCel1(String teLCel1) {
+        this.teLCel1 = teLCel1;
+    }
+
+    public String getTelCel2() {
+        return telCel2;
+    }
+
+    public void setTelCel2(String telCel2) {
+        this.telCel2 = telCel2;
+    }
+
+    public String getTelCel3() {
+        return telCel3;
+    }
+
+    public void setTelCel3(String telCel3) {
+        this.telCel3 = telCel3;
     }
 
     public String getDataNascimento() {
